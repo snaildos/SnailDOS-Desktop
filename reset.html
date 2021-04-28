@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>SnailPortal - Reset</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+            const { ipcRenderer } = require('electron');
+        function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+        function cancel()  {
+            window.location.href = "index.html";
+        }
+
+        async function resets()  {
+            document.write("Preparing...")
+            await sleep(2000);
+            document.open()
+            document.write("Erasing setup data...")
+            localStorage.removeItem("setup");
+            localStorage.removeItem("greeter");
+            await sleep(2000);
+            document.open()
+            document.write("Erasing login info...")
+            localStorage.removeItem("name");
+            localStorage.removeItem("firstime");
+            await sleep(2000);
+            document.open()
+            document.write("Reset Sucess... ")
+            document.write("Please wait...")
+            await sleep(2000);
+            ipcRenderer.send('relaunch');
+        }
+    </script>
+</head>
+<body>
+    <center>
+    <h1 class="w3-center">Do you want to reset SnailPortal?</h1>
+    <p></p>
+    <button class="w3-button w3-black w3-center" onclick="resets();">Continue</button>
+    <p></p>
+    <button class="w3-button w3-black w3-center" onclick="cancel();">Cancel</button>
+</center>
+</html>

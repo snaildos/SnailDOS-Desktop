@@ -1,0 +1,1 @@
+console.log("EULA initalized.")

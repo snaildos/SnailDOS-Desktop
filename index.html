@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script>
+    window.jQuery = window.$ = require('jquery');
+    window.$ = $;
+require('bootstrap');
+window.$ = $;
+require('popper.js');
+  </script>
+  <title>SnailDOS Portal</title>
+  <script src="confetti.js"></script>
+  <script>
+    //boot checker
+    $("settings").hide()
+  </script>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  <script>
+    // update check
+    (function($){
+  $(document).ready(function() {
+  
+  var setup = localStorage.getItem('setup');
+  
+  if(setup != 'true'){
+    confetti.stop();
+    $("div").hide();
+    console.log('Setup not finished.');
+    window.location.href = "setup.html";
+  }
+  
+  });
+  })(jQuery);
+
+      // firstboot check
+      (function($){
+  $(document).ready(function() {
+  
+  var firstime = localStorage.getItem('firstime');
+  
+  if(firstime != 'false'){
+    $(".namers").hide();
+    console.log('First boot!');
+    $("#welcome").click();
+    confetti.start()
+  }
+  
+  });
+  })(jQuery);
+  </script>
+  <script>
+var name = localStorage.getItem('name');
+
+    function complete() {
+      confetti.stop()
+      localStorage.setItem("firstime", "false");
+      $(".namers").show();
+      document.getElementById('id01').style.display='none'
+    }
+  </script>
+  <script>
+    //settings
+    function settings()  {
+      $(".namers").hide()
+      $("#settingstbh").click();
+    };
+    
+    function exitsettings()  {
+      document.getElementById('id02').style.display='none'
+      $(".namers").show()
+    }
+    
+    function changename()  {
+      $("#namechange").click();
+    }
+
+    function reset()  {
+      window.location.href = "reset.html";
+    }
+  </script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+.front {
+    display: block;
+    z-index: 5;
+    position: relative;
+}
+.box-left-mini .front span {
+    background: #fff
+}
+
+.box-left-mini .behind_container {
+    background-color: #ff0;
+    position: relative;
+    top: -18px;
+}
+.box-left-mini .behind {
+    display: block;
+    z-index: 3;
+}
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 20px;
+      font-family: sans-serif;
+      background-color: #000000;
+      text-align: center;
+    }
+    #notification {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 200px;
+      padding: 20px;
+      border-radius: 5px;
+      background-color: white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    .settings {
+     line-height: 20px;
+     width: 70px;
+     font-size: 10pt;
+     font-family: tahoma;
+     margin-top: 1px;
+     margin-right: 2px;
+     position:absolute;
+     top:0;
+     right:0;
+ }
+    .hidden {
+      display: none;
+    }
+
+    .butop  {
+      font-size: 30px;
+    }
+
+    .dark {
+   background: #ffffff;
+   color: #efefef;
+}
+
+h1,h2,h3,h4,h5,p  {
+  color: white;
+}
+
+.w3-container  {
+  background-color: rgb(31, 29, 29);
+}
+/* ---- reset ---- */canvas{ display: block; vertical-align: bottom; } /* ---- particles.js container ---- */ #particles-js{ position:absolute; width: 100%; height: 100%; background-color: #000000; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
+
+  </style>
+  <script>
+    function snailcreate(){
+      console.log("Start WorkSpace")
+      window.location.href = "snailspace.html";
+    }
+  </script>
+  <script>
+    var say = require('say');
+    async function greetname(){
+    function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}   
+    var say = require('say');
+    
+    say.speak(`Hello`,  0.5, (err) => {
+        if (err) {
+            return console.error(err);
+        }
+    
+        console.log('Text has been spoken.');
+    });
+    
+    await sleep(1000);
+    say.speak(`${name}`,  0.5, (err) => {
+        if (err) {
+            return console.error(err);
+        }
+    
+        console.log('Text has been spoken.');
+    });
+  }
+    </script>
+      <script>
+        var nameis = localStorage.getItem('name');
+      
+        if(nameis === 'SnailLord'){
+          console.log("EasterEgg #1")
+          var audio = new Audio('./sounds/egg.mp3');
+    audio.play();
+        }
+    
+        var greetnamec = localStorage.getItem('greeter');
+      
+      if(greetnamec === 'true'){
+        console.log("Greeting name...")
+        greetname();
+        console.log("Sucess.")
+      }
+      </script>
+</head>
+<body>
+  <!-- particles.js container --> <div id="particles-js" class="behind"></div> <span class="js-count-particles">--</span> particles </div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> </script>
+  <main class="front" id="front" unselectable="on" onselectstart="return false;">
+  <div class="w3-container">
+    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black hidden" id="welcome">Open Modal</button>
+    <div id="id01" class="w3-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container">
+          <h1> Thank you! </h1>
+          <h2>Thank you for using SnailDOS! Press the start button to start logging in and using SnailPortal!</h2>
+          <p></p>
+          <button class="w3-button w3-black" onclick="complete()">Start!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="w3-container">
+    <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-black hidden" id="settingstbh">opencodelol</button>
+  
+    <div id="id02" class="w3-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container">
+          <h1> Settings </h1>
+          <h2>Please select what you want to change!</h2>
+          <button class="w3-button w3-black w3-hover" onclick="changename()">Change Name</button>
+          <p></p>
+          <main id="greeter">
+            <p> Onload greeter? </p>
+            <label class="switch">
+              <input type="checkbox" onclick="greet()" id="greeterbox" >
+              <span class="slider"></span>
+            </label>
+          </main>
+          </p>
+            <script>
+
+$('#greeter').toggleClass(localStorage.toggled);
+
+function greet() {
+  if (localStorage.greeter != 'true') {
+    localStorage.greeter = "true";
+     
+  } else {
+    localStorage.greeter = "";
+  }
+}
+
+var greeterval = localStorage.getItem('greeter');
+      
+      if(greeterval === 'true'){
+   $( '#greeterbox' ).prop( "checked", true )
+} else {
+  $( '#greeterbox' ).prop( "checked", false )
+}
+            </script>
+          <p></p>
+          <button class="w3-button w3-black w3-hover" onclick="reset()">Reset SnailPortal</button>
+          <p></p>
+          <button class="w3-button w3-black" onclick="exitsettings()">Exit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-container">
+    <button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-black hidden" id="namechange">opencodelol</button>
+  
+    <Script>
+      function store()  {
+var username = $('#name').val();
+localStorage.setItem("name", username);
+$("#namechangeexit").click()
+return false;
+      }
+  </script>
+
+    <div id="id03" class="w3-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container">
+          <h1> Name-Changer </h1>
+          <div class="cls3"><h4 class="main" class="w3-center"><h2 class="w3-center">Enter your name:</h2>
+            <p>
+                <h2 class="w3-center">Press the "enter" key when complete.</h2>
+            </p>
+            <p>
+
+            </p><form class="w3-center" onsubmit="store()"> 
+              <input class="name" id="name" name="name" type="name" id="email" required="true" placeholder="" maxlength="10" />
+              </form></div>
+          <p></p>
+          <button class="w3-button w3-black" id="namechangexit" onclick="document.getElementById('id03').style.display='none'">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<button class="settings" onclick="settings()">Settings</button>
+<div id="namers" class="namers">
+  <h1 style="display:inline-block;">Hello, <div style="height:1em" id="namedefine" style="display:block; float:right" ></div></h1>
+</div>
+<p>
+  <h2 class="w3-center">What do you want to do today?</h2>
+</p>
+<button class="w3-center w3-black w3-center butop" onclick="window.close()">Exit</button>
+<p></p>
+<button class="w3-center w3-black w3-center butop" onclick="snailcreate()">Open SnailDOS-CREATE</button>
+
+  <script>
+      document.getElementById("namedefine").innerHTML = localStorage.getItem("name");
+    </script>
+  <p id="version"></p>
+  <div id="notification" class="hidden">
+    <p id="message"></p>
+    <button id="close-button" onClick="closeNotification()">
+      Close
+    </button>
+    <button id="restart-button" onClick="restartApp()" class="hidden">
+      Restart
+    </button>
+  </div>
+  <script>
+    const { ipcRenderer } = require('electron');
+    const version = document.getElementById('version');
+    const notification = document.getElementById('notification');
+    const message = document.getElementById('message');
+    const restartButton = document.getElementById('restart-button');
+    
+    ipcRenderer.send('app_version');
+    ipcRenderer.on('app_version', (event, arg) => {
+      ipcRenderer.removeAllListeners('app_version');
+      version.innerText = 'Version ' + arg.version;
+    });
+
+    ipcRenderer.on('update_available', () => {
+      ipcRenderer.removeAllListeners('update_available');
+      message.innerText = 'A new update is available. Downloading now...';
+      notification.classList.remove('hidden');
+    });
+
+    ipcRenderer.on('update_downloaded', () => {
+      ipcRenderer.removeAllListeners('update_downloaded');
+      message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
+      restartButton.classList.remove('hidden');
+      notification.classList.remove('hidden');
+    });
+
+    function closeNotification() {
+      notification.classList.add('hidden');
+    }
+    
+    function restartApp() {
+      ipcRenderer.send('restart_app');
+    }
+  </script>
+  </main id="front">
+    <script>
+      particlesJS("particles-js", {"particles":{"number":{"value":265,"density":{"enable":true,"value_area":800}},"color":{"value":"#1e1a1a"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":1,"random":true,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":8.00864934128859,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":4.805189604773155,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":true,"rotateX":600,"rotateY":2162.3353221479197}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"bubble"},"onclick":{"enable":false,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});var count_particles; update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+    </script>
+</body>
+</html>

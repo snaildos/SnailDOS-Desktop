@@ -1,0 +1,32 @@
+{
+  "name": "SnailPortal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snaildos/snailportal.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-builder build --mac --win --publish never",
+    "deploy": "electron-builder build --mac --win --publish always"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^5.0.1",
+    "electron-builder": "^20.40.2"
+  },
+  "dependencies": {
+    "electron-updater": "^4.0.6",
+    "isdev": "^1.0.1",
+    "discord-rpc": "^3.1.4",
+    "jquery": "^3.6.0",
+    "bootstrap": "^4.6.0",
+    "popper.js": "^1.16.1",
+    "say": "^0.16.0",
+    "internet-available": "^1.0.0"
+  }
+}
