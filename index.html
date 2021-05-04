@@ -9,7 +9,12 @@
 require('bootstrap');
 window.$ = $;
 require('popper.js');
-  </script>
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/railscasts.min.css">
+<link rel="stylesheet" href="box/css/winbox.min.css">
+<link rel="stylesheet" href="box/css/themes/modern.min.css">
+<link rel="stylesheet" href="box/css/themes/white.min.css">
+<script src="box/js/winbox.min.js"></script>
   <title>SnailDOS Portal</title>
   <script src="confetti.js"></script>
   <script>
@@ -158,9 +163,27 @@ h1,h2,h3,h4,h5,p  {
 
   </style>
   <script>
+    function snailhostopen(){
+      console.log("open snailhost")
+      new WinBox("SnailHost", {
+    id: "snailhost",
+    border: 4,
+    width: 500,
+    height: 400,
+    x: "center",
+    y: "center",
+    max: false,
+    class: ["no-full", "no-max"],
+    top: 50,
+    right: 50,
+    bottom: 0,
+    left: 50,
+      url: "https://host.snaildos.com"
+});
+    }
     function snailcreate(){
       console.log("Start WorkSpace")
-      window.location.href = "snailspace.html";
+      window.location.replace("snailcreate.html");
     }
   </script>
   <script>
@@ -208,7 +231,7 @@ h1,h2,h3,h4,h5,p  {
       </script>
 </head>
 <body>
-  <!-- particles.js container --> <div id="particles-js" class="behind"></div> <span class="js-count-particles">--</span> particles </div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> </script>
+  <!-- particles.js container --> <div id="particles-js" class="behind"></div> <span class="js-count-particles">--</span> particles </div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> </script>
   <main class="front" id="front" unselectable="on" onselectstart="return false;">
   <div class="w3-container">
     <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black hidden" id="welcome">Open Modal</button>
@@ -228,8 +251,8 @@ h1,h2,h3,h4,h5,p  {
   <div class="w3-container">
     <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-black hidden" id="settingstbh">opencodelol</button>
   
-    <div id="id02" class="w3-modal">
-      <div class="w3-modal-content">
+    <div id="id02" class="w3-modal w3-round">
+      <div class="w3-modal-content w3-round">
         <div class="w3-container">
           <h1> Settings </h1>
           <h2>Please select what you want to change!</h2>
@@ -304,7 +327,6 @@ return false;
       </div>
     </div>
   </div>
-
 <button class="settings" onclick="settings()">Settings</button>
 <div id="namers" class="namers">
   <h1 style="display:inline-block;">Hello, <div style="height:1em" id="namedefine" style="display:block; float:right" ></div></h1>
@@ -312,10 +334,13 @@ return false;
 <p>
   <h2 class="w3-center">What do you want to do today?</h2>
 </p>
-<button class="w3-center w3-black w3-center butop" onclick="window.close()">Exit</button>
-<p></p>
 <button class="w3-center w3-black w3-center butop" onclick="snailcreate()">Open SnailDOS-CREATE</button>
-
+<p></p>
+<button class="w3-center w3-black w3-center butop" onclick="snailhostopen()">Open SnailHost</button>
+<p></p>
+  <button class="w3-center w3-black w3-center butop" onclick="window.close()">Exit</button>
+<p></p>
+</main>
   <script>
       document.getElementById("namedefine").innerHTML = localStorage.getItem("name");
     </script>

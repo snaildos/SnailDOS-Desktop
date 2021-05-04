@@ -53,14 +53,15 @@ let mainWindow;
 
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 900,
+    height: 700,
     show: false,
     fullscreen: false,
     modal: true,
     icon: 'snailfm.ico',
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
     },
   });
   mainWindow.setMenuBarVisibility(false)
