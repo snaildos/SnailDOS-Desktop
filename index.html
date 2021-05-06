@@ -75,7 +75,7 @@ console.log('Usually this would throw a err, but mani would of picked up a secur
   
   var enc = localStorage.getItem('enc');
   
-  if(enc != 'false'){
+  if(enc = 'true'){
     console.log('Addon log!')
     localStorage.setItem("enc", false);
     window.location.replace("pinsetup.html");
@@ -383,6 +383,7 @@ return false;
 </div>
 <p>
   <h2 class="w3-center">What do you want to do today?</h2>
+  <h4 id="version" class="white"></h4>
 </p>
 <button class="w3-center w3-black w3-center butop" onclick="snailcreate()">Open SnailDOS-CREATE</button>
 <p></p>
@@ -394,7 +395,6 @@ return false;
   <script>
       document.getElementById("namedefine").innerHTML = localStorage.getItem("name");
     </script>
-  <p id="version"></p>
   <div id="notification" class="hidden">
     <p id="message"></p>
     <button id="close-button" onClick="closeNotification()">

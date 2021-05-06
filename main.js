@@ -168,6 +168,7 @@ if (security.get('pin')) {
   createWindow()
   setTimeout(() => {
     console.log("Update check suc.")
+    autoUpdater.checkForUpdatesAndNotify();
   }, 5000);
 })
 
