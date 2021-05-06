@@ -75,12 +75,11 @@ console.log('Usually this would throw a err, but mani would of picked up a secur
   
   var enc = localStorage.getItem('enc');
   
-  if(enc = 'true'){
+  if(enc == 'true'){
     console.log('Addon log!')
     localStorage.setItem("enc", false);
     window.location.replace("pinsetup.html");
   }
-  
   });
   })(jQuery);
   </script>

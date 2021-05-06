@@ -154,7 +154,7 @@ app.on('ready', () => {
   // Start the main program
 if (security.get('pin')) {
   console.log("Pin detected. Cancel load process.")
-  wait('101')
+  wait('100')
   securitycreate();
   securitywin.setMenuBarVisibility(false)
   securitywin.setResizable(false)

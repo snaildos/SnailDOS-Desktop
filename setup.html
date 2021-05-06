@@ -94,7 +94,7 @@ return false;
         </script>
                 <script>
                     function enc()  {
-                    localStorage.setItem("enc", true);
+                    localStorage.setItem("enc", true)
                     $("#3").click()
                     }
                 </script>
@@ -104,6 +104,10 @@ return false;
             localStorage.setItem("firstime", true);
             localStorage.setItem("greeter", true);
             window.location.href = "index.html"
+            }
+
+            function next(){
+                $("#3").click()
             }
         </script>
     </head>
@@ -121,8 +125,8 @@ return false;
                 </p><form class="w3-center" onsubmit="store(); return false;"> 
                 <input class="name" id="name" name="name" type="name" id="email" required="true" placeholder="" />
                 </form></h4><button id="3" class="ctrl w3-center w3-light-blue hidden">Next!</button><h2 class="hidden">h</h2></div>
-                <div class="cls4"><h4 class="main" class="w3-center">4. Add-on's!<p></p> <button class="w3-button w3-blue-gray w3-center" onClick="enc()">Add encryption to load! (Security)</button><p>
-                    <button id="3" class="ctrl w3-center w3-light-blue w3-center">Skip!</button>
+                <div class=""><h4 class="main" class="w3-center">4. Add-on's!<p></p> <button class="w3-button w3-blue-gray w3-center" onClick="enc()">Add encryption to load! (Security)</button><p>
+                    <button id="3" class="ctrl w3-center w3-light-blue w3-center cls4" onclick="next()">Skip!</button>
                 </p></h4></div>
             <div class="cls5"><h4 class="main" class="w3-center">5. Let's start!<p></p> <button class="w3-button w3-blue-gray w3-center" onClick="complete()">Start</button></h4></div>
         </div>
