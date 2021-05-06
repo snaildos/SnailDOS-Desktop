@@ -98,7 +98,7 @@ if(isDev) {
   console.log("Not in Development!")
 }
     mainWindow.show();
-        //security
+        //security window
         if (security.get('loading')) {
 console.log("Security error!")
 mainWindow.close()
