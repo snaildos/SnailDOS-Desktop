@@ -181,6 +181,10 @@ h1,h2,h3,h4,h5,p  {
   color: white;
 }
 
+.notif {
+  color: black;
+}
+
 .w3-container  {
   background-color: rgb(31, 29, 29);
 }
@@ -394,8 +398,8 @@ return false;
   <script>
       document.getElementById("namedefine").innerHTML = localStorage.getItem("name");
     </script>
-  <div id="notification" class="hidden">
-    <p id="message"></p>
+  <div id="notification" class="hidden notif">
+    <p id="message" class="notif"></p>
     <button id="close-button" onClick="closeNotification()">
       Close
     </button>
