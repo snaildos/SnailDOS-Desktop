@@ -18,6 +18,17 @@ require('popper.js');
   <title>SnailDOS Portal</title>
   <script src="confetti.js"></script>
   <script>
+    const { ipcRenderer } = require('electron');
+    const Store = require('electron-store');
+   const security = new Store();
+    //security
+    if (security.get('loading')) {
+console.log('Usually this would throw a err, but mani would of picked up a security problem.')
+} else {
+  console.log("Security check sucess.")
+}
+  </script>
+  <script>
     //boot checker
     $("settings").hide()
   </script>
@@ -53,6 +64,21 @@ require('popper.js');
     console.log('First boot!');
     $("#welcome").click();
     confetti.start()
+  }
+  
+  });
+  })(jQuery);
+
+  //enc 
+  (function($){
+  $(document).ready(function() {
+  
+  var enc = localStorage.getItem('enc');
+  
+  if(enc != 'false'){
+    console.log('Addon log!')
+    localStorage.setItem("enc", false);
+    window.location.replace("pinsetup.html");
   }
   
   });
@@ -247,6 +273,12 @@ h1,h2,h3,h4,h5,p  {
     </div>
   </div>
 
+<script>
+  function encrypt69(){
+    window.location.replace("pinsetup.html");
+  }
+</script>
+
 
   <div class="w3-container">
     <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-black hidden" id="settingstbh">opencodelol</button>
@@ -264,10 +296,18 @@ h1,h2,h3,h4,h5,p  {
               <input type="checkbox" onclick="greet()" id="greeterbox" >
               <span class="slider"></span>
             </label>
+            <p class="white">Encryption
+            Encryption is currently</p>
+             <p id="encstat" class="encstat">
+              Fetching...
+            </p>
+            <button class="w3-button w3-black encstart" id="encstart" onclick="encrypt69()">Start encrypting!</button>
+            <p></p>
+            <h1 class="hidden">h</h1>
           </main>
           </p>
             <script>
-
+// greeter
 $('#greeter').toggleClass(localStorage.toggled);
 
 function greet() {
@@ -286,8 +326,18 @@ var greeterval = localStorage.getItem('greeter');
 } else {
   $( '#greeterbox' ).prop( "checked", false )
 }
+
+// enc
+$("#encstat").text("Loading...");
+if (security.get('pin')) {
+  $("#encstat").text("Enabled");
+  $(".encstart").hide();
+} else {
+  $("#encstat").text("Disabled");
+}
             </script>
           <p></p>
+          <h1 class="hidden">h</h1>
           <button class="w3-button w3-black w3-hover" onclick="reset()">Reset SnailPortal</button>
           <p></p>
           <button class="w3-button w3-black" onclick="exitsettings()">Exit</button>

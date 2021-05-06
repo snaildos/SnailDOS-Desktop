@@ -23,6 +23,9 @@
             document.write("Erasing setup data...")
             localStorage.removeItem("setup");
             localStorage.removeItem("greeter");
+            const Store = require('electron-store');
+            const security = new Store();
+            security.clear()
             await sleep(2000);
             document.open()
             document.write("Erasing login info...")

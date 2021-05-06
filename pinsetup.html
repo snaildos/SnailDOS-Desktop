@@ -4,11 +4,13 @@
             window.jQuery = window.$ = require('jquery');
             const { ipcRenderer } = require('electron');
         </script>
+        <link rel="stylesheet" href="pad/numpad-dark.css"/>
+        <script src="pad/numpad.js"></script>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-        <title>SnailPortal Setup</title>
+        <title>SnailPortal - Encrypt</title>
                <script>
         $(document).ready(function () {
             $(".divs div").each(function (e) {
@@ -64,6 +66,11 @@
         }
         body {
             background-color: #000000;
+            user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
         }
 
         .hidden  {
@@ -80,52 +87,59 @@
         }
         </style>
         <Script>
-            function store()  {
-var username = $('#name').val();
-localStorage.setItem("name", username);
-$("#3").click()
-return false;
+            function store3()  {
+const Store = require('electron-store');
+var pass123 = $('#passbox').val();
+console.log('Encryption start!')
+var pin = new Store({
+    name: "pin",
+    encryptionKey: pass123
+})
+pin.set('isencrypted', 'true')
+pin.set('pin', pass123)
+$(".divs div:visible").next().length != 0
+$(".divs div:visible").next().show().prev().hide()
+const security = new Store()
+security.set('pin', 'true')
+console.log('Enc complete.')
             }
         </script>
         <script>
-            function eulao(){
-                ipcRenderer.send('eula');
-            }
-        </script>
-                <script>
-                    function enc()  {
-                    localStorage.setItem("enc", true);
-                    $("#3").click()
-                    }
-                </script>
-        <script>
-            function complete()  {
-            localStorage.setItem("setup", true);
-            localStorage.setItem("firstime", true);
-            localStorage.setItem("greeter", true);
-            window.location.href = "index.html"
+            function complete(){
+                ipcRenderer.send('relaunch');
             }
         </script>
     </head>
     <body>
         <div class="divs">
             <center>
-            <div class="cls1"><h2 class="main" class="w3-center">Welcome to the setup of SnailPortal<p><p><button id="1" class="ctrl w3-center w3-light-blue w3-center">Next!</button><h2 class="hidden">h</h2></p></h2></div>
-            <div class="cls2"><h2 class="main" class="w3-center">By using this software, you accept using the EULA. Pressing "AGREE" means you agree to the terms.<p><button id="2" class="ctrl w3-center w3-light-blue w3-center">AGREE!</button><p><button onclick="eulao()" class="ctrl w3-center w3-light-blue w3-center">View Terms</button></p><h2 class="hidden">h</h2></p></h2> <p></div>
-            <div class="cls3"><h4 class="main" class="w3-center"><h2 class="w3-center">Enter your name:</h2>
+            <div class="cls1"><h2 class="main" class="w3-center">Welcome to the interactive encrypter<p><p><button id="1" class="ctrl w3-center w3-light-blue w3-center">Next!</button><h2 class="hidden">h</h2></p></h2></div>
+            <div class="cls2"><h2 class="main" class="w3-center">Any password typed in here, will create a new local database and encrypt it. Forgetting your pin = loosing everything.<p><button id="2" class="ctrl w3-center w3-light-blue w3-center">AGREE!</button><h2 class="hidden">h</h2></p></h2> <p></div>
+            <div class="cls3"><h4 class="main" class="w3-center"><h2 class="w3-center">Enter a pin:</h2>
                 <p>
-                    <h2 class="w3-center">Press the "enter" key when complete.</h2>
+                    <h2 class="w3-center">Press the "Start Encryption!" button when completed..</h2>
                 </p>
                 <p>
 
-                </p><form class="w3-center" onsubmit="store(); return false;"> 
-                <input class="name" id="name" name="name" type="name" id="email" required="true" placeholder="" />
-                </form></h4><button id="3" class="ctrl w3-center w3-light-blue hidden">Next!</button><h2 class="hidden">h</h2></div>
-                <div class="cls4"><h4 class="main" class="w3-center">4. Add-on's!<p></p> <button class="w3-button w3-blue-gray w3-center" onClick="enc()">Add encryption to load! (Security)</button><p>
-                    <button id="3" class="ctrl w3-center w3-light-blue w3-center">Skip!</button>
-                </p></h4></div>
-            <div class="cls5"><h4 class="main" class="w3-center">5. Let's start!<p></p> <button class="w3-button w3-blue-gray w3-center" onClick="complete()">Start</button></h4></div>
+                </p><form class="w3-center" onsubmit="store3(); return false;"> 
+                <input class="passbox" id="passbox" name="passbox" type="password" id="passbox" required="true" placeholder="" />
+                <p>
+                    <h1 class="invisible">h</h1>
+                    <button class="w3-button w3-white w3-round" onclick="store3()">Start Encryption!</button>
+                </p>
+                </form></h4><h2 class="hidden">h</h2></div>
+            <div class="cls4"><h4 class="main" class="w3-center">Finished.<p></p> <button class="w3-button w3-blue-gray w3-center" onClick="complete()">Relaunch</button></h4></div>
         </div>
+        <script>
+            window.addEventListener("load", function(){
+              // WITH OPTIONS
+              numpad.attach({
+                target: "passbox",
+                max: 4,
+                decimal: false
+              });
+            });
+            </script>
         <div class="w3-center">
             
             <h1 class="hidden">h<p>h<p>h</p></h1>

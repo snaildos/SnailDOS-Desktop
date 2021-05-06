@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <script>
+            window.jQuery = window.$ = require('jquery');
+            const { ipcRenderer } = require('electron');
+        </script>
+            <link rel="stylesheet" href="pad/numpad-dark.css"/>
+            <script src="pad/numpad.js"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <title>SnailPortal - Login</title>
+        <style>
+        main  {
+            font-size: 50px;
+        }
+        body {
+            background-color: #000000;
+            user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+        }
+
+        .hidden  {
+            opacity: 0.0;
+        }
+
+        h1,h2,h3,h4,h5,h6,a,button  {
+            color: white;
+            
+        }
+        .ctrl {
+            color: white;
+            font-size: 35px;
+        }
+        </style>
+        <Script>
+            const Store = require('electron-store');
+            function store3()  {
+var pass123 = $('#passbox').val();
+console.log('Logging in...')
+try {
+    var pin = new Store({
+    name: "pin",
+    encryptionKey: pass123
+})
+} catch(error) {
+alert("The pin entered is incorrect. Please, try again.")
+}
+if(pin.get('isencrypted')) {
+  console.log("Is encrypted.")
+} else {
+  alert("Decode error. :(")
+}
+pin.set('isencrypted', 'true')
+pin.set('pin', pass123)
+$("#3").click()
+console.log('Login complete.')
+ipcRenderer.send('loginsucess');
+            }
+        </script>
+        <script>
+            function complete(){
+                ipcRenderer.send('relaunch');
+            }
+        </script>
+    </head>
+    <body>
+        <div class="divs">
+            <center>
+            <div class="cls3"><h4 class="main" class="w3-center"><h2 class="w3-center">Enter your pin:</h2>
+                <h2>Click on the box to open the pin dialogue, then, enter your valid pin.</h2>
+                <p>
+                    <h2 class="w3-center">Press the "login" button when complete.</h2>
+                </p>
+                <p>
+
+                </p><form class="w3-center" onsubmit="store3(); return false;"> 
+                <input class="passbox" id="passbox" name="passbox" type="password" id="passbox" required="true" placeholder="" />
+                <p>
+                    <button class="w3-button w3-white w3-round" onclick="store3()">Login</button>
+                </p>
+        </div>
+        <div class="w3-center">
+            
+            <h1 class="hidden">h<p>h<p>h</p></h1>
+        </div>
+    </center>
+    <script>
+        window.addEventListener("load", function(){
+          // WITH OPTIONS
+          numpad.attach({
+            target: "passbox",
+            max: 4,
+            decimal: false
+          });
+        });
+        </script>
+    </body>
+</html>

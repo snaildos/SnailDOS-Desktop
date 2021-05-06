@@ -5,6 +5,7 @@ const { watchFile } = require('fs');
 // Notify
 const { Notification } = require('electron')
 
+
 function neterr() {
   const notification = {
     title: 'SnailPortal',
@@ -13,7 +14,9 @@ function neterr() {
   new Notification(notification).show()
 }
 
+const Store = require('electron-store');
 
+const security = new Store();
 
 // Start the libaries
 require('./libs/rpc.js');
@@ -27,7 +30,6 @@ function wait(ms)
 }
 // Loading screen
 /// Start a init
-let loadingScreen;
 const createLoadingScreen = () => {
   loadingScreen = new BrowserWindow(
     Object.assign({
@@ -41,6 +43,7 @@ const createLoadingScreen = () => {
   );
   loadingScreen.setResizable(false);
   loadingScreen.loadFile('splash.html');
+  security.set('loading', 'true');
   loadingScreen.on('closed', () => (loadingScreen = null));
   loadingScreen.webContents.on('did-finish-load', () => {
     loadingScreen.show();
@@ -48,8 +51,22 @@ const createLoadingScreen = () => {
 };
 console.log("Loading screen ready.");
 
-// Start the main program
-let mainWindow;
+
+function securitycreate() {
+  securitywin = new BrowserWindow({
+    width: 500,
+    height: 600,
+    show: false,
+    alwaysOnTop: false,
+    frame: true,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      devTools: false
+    }
+  });
+}
+
 
 function createWindow () {
   mainWindow = new BrowserWindow({
@@ -67,6 +84,7 @@ function createWindow () {
   mainWindow.setMenuBarVisibility(false)
   mainWindow.setResizable(false)
   mainWindow.loadFile('index.html');
+  security.set('loading', false);
   mainWindow.on('maximize', () => mainWindow.unmaximize());
   setTimeout(() => {
     if (loadingScreen) {
@@ -80,7 +98,15 @@ if(isDev) {
   console.log("Not in Development!")
 }
     mainWindow.show();
+        //security
+        if (security.get('loading')) {
+console.log("Security error!")
+mainWindow.close()
+          } else {
+            console.log("Security check sucess.")
+          }
     console.log("Ok! Window init, let's check for updates...")
+    security.set('loading', 'false')
     autoUpdater.checkForUpdatesAndNotify();
     console.log("Update checked. Let's see what happens!");
 }, 4000);
@@ -120,9 +146,22 @@ function freehost() {
   });
 }
 
+
+
 console.log("Main screen ready.");
 
 app.on('ready', () => {
+  // Start the main program
+if (security.get('pin')) {
+  console.log("Pin detected. Cancel load process.")
+  wait('100')
+  securitycreate();
+  securitywin.setMenuBarVisibility(false)
+  securitywin.setResizable(false)
+  securitywin.show();
+  securitywin.loadFile('login.html')
+  return;
+}
   createLoadingScreen();
   console.log("Send check for updates signal...");
   console.log("Alright, lets go!");
@@ -183,4 +222,16 @@ ipcMain.on('freehost', () => {
   freehost();
   freehost.show();
   freehost.loadFile('./ui/index.html')
+});
+
+ipcMain.on('loginsucess', () => {
+  console.log('Logged in')
+  createLoadingScreen();
+  console.log("Send check for updates signal...");
+  console.log("Alright, lets go!");
+  createWindow()
+  securitywin.close();
+  setTimeout(() => {
+    console.log("Update check suc.")
+  }, 5000);
 });
