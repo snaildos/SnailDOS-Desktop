@@ -34,7 +34,7 @@ const createLoadingScreen = () => {
   loadingScreen = new BrowserWindow(
     Object.assign({
       width: 800,
-      height: 368,
+      height: 600,
       alwaysOnTop: true,
       frame: false,
       fullscreen: false,

@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <script>
+            window.jQuery = window.$ = require('jquery');
+            const { ipcRenderer } = require('electron');
+            const fs = window.require('fs');
+        </script>
+            <link rel="stylesheet" href="pad/numpad-dark.css"/>
+            <script src="pad/numpad.js"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <title>SnailPortal - Erase</title>
+        <style>
+        main  {
+            font-size: 50px;
+        }
+        body {
+            background-color: #000000;
+            user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+        }
+
+        .hidden  {
+            opacity: 0.0;
+        }
+
+        h1,h2,h3,h4,h5,h6,a,button  {
+            color: white;
+            
+        }
+        .ctrl {
+            color: white;
+            font-size: 35px;
+        }
+        </style>
+        <Script>
+            const Store = require('electron-store');
+            function store3()  {
+var pass1234 = $('#passbox').val();
+console.log('PRP remove.')
+try {
+    var pin = new Store({
+    name: "pin",
+    encryptionKey: pass1234
+})
+} catch(error) {
+alert("Decrpytion remove failed, Incorrect password?")
+window.location.href = "decandrm.html";
+}
+pin.delete('isencrypted')
+pin.delete('pin')
+console.log('We need to delete the old DBS')
+
+// Drop old DB
+fs.unlinkSync(pin.path)
+
+console.log('Dcoded Complete.')
+console.log('Restarting...')
+var enc = localStorage.getItem('encdis');
+  
+(function($){
+  $(document).ready(function() {
+  if(enc == 'true'){
+    console.log('enc dis')
+    localStorage.setItem("encdis", false);
+    window.location.replace("reset.html");
+  }
+  });
+  })(jQuery);
+            }
+        </script>
+        <script>
+            function complete(){
+                ipcRenderer.send('relaunch');
+            }
+        </script>
+    </head>
+    <body>
+        <div class="divs">
+            <center>
+            <div class="cls3"><h4 class="main" class="w3-center"><h2 class="w3-center">Decrytion Helper:</h2>
+                <h2>You are about to uninstall encrpytion, this is because you clicked on the reset button, or the disable encryption button.</h2>
+                <p>
+                    <h2 class="w3-center">Press the "remove decryption" button when complete.</h2>
+                </p>
+                <p>
+
+                </p><form class="w3-center" onsubmit="store3(); return false;"> 
+                <input class="passbox" id="passbox" name="passbox" type="password" id="passbox" required="true" placeholder="" />
+                <p>
+                    <button class="w3-button w3-white w3-round" onclick="store3()">Remove Decryption</button>
+                </p>
+        </div>
+        <div class="w3-center">
+            
+            <h1 class="hidden">h<p>h<p>h</p></h1>
+        </div>
+    </center>
+    <script>
+        window.addEventListener("load", function(){
+          // WITH OPTIONS
+          numpad.attach({
+            target: "passbox",
+            max: 4,
+            decimal: false
+          });
+        });
+        </script>
+    </body>
+</html>

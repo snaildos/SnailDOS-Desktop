@@ -5,7 +5,27 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>SnailPortal - Reset</title>
+    <title>SnailPortal Reset</title>
+    <Script>
+        const Store = require('electron-store');
+        function resets()  {
+const security = new Store()
+security.get('pin')
+console.log('auth39')
+
+if (security.get('pin')) {
+console.log("aaa")
+security.set('pin', false);
+alert("You have encryption enabled, You will need be redirected to a decrypt and drop page... Press OK to continue.")
+localStorage.setItem("encdis", true);
+window.location.href = "decandrm.html";
+
+          } else {
+            console.log("going to need to decrypt. :(")
+            start()
+          }
+        }
+    </script>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script>
             const { ipcRenderer } = require('electron');
@@ -16,8 +36,22 @@
             window.location.href = "index.html";
         }
 
-        async function resets()  {
+        async function start()  {
             document.write("Preparing...")
+            console.log("Confirm we are not encrypted please!")
+            document.write("Loading...")
+            document.write("Loading...")
+            document.write("Loading...")
+            document.write("Loading...")
+            document.write("Loading...")
+            document.write("Loading...")
+            document.write("Loading...")
+            document.write("Loading...")
+            document.write("Loading...")
+            document.write("Loading...")
+            document.write("Loading...")
+            document.write("Loading...")
+            document.write("Loading...")
             await sleep(2000);
             document.open()
             document.write("Erasing setup data...")
