@@ -20,15 +20,15 @@
     "electron-builder": "^22.11.5"
   },
   "dependencies": {
-    "electron-updater": "^4.3.9",
-    "isdev": "^1.0.1",
-    "discord-rpc": "^3.1.4",
-    "jquery": "^3.6.0",
-    "electron-store": "^8.0.0",
     "bootstrap": "^4.6.0",
+    "discord-rpc": "^3.1.4",
+    "electron-store": "^8.0.0",
+    "electron-updater": "^4.3.9",
+    "internet-available": "^1.0.0",
+    "isdev": "^1.0.1",
+    "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
-    "winbox": "0.2.0",
     "say": "^0.16.0",
-    "internet-available": "^1.0.0"
+    "winbox": "0.2.0"
   }
 }
