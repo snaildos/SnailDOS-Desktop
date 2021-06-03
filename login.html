@@ -34,7 +34,7 @@
         }
         .ctrl {
             color: white;
-            font-size: 35px;
+            font-size: 35px;    
         }
         </style>
         <Script>
@@ -42,6 +42,18 @@
             function store3()  {
 var pass123 = $('#passbox').val();
 console.log('Logging in...')
+if (pass123 == 0) {
+    console.log("0 Day Hack Detected")
+    alert("You attempted to login with no password. Please enter the correct password.")
+    window.location.replace("login.html");
+    ipcRenderer.send('relaunch');
+}
+if (pass123 == 1) {
+    console.log("0 Day Hack Detected")
+    alert("Decode Error, error code is 13. Database problem...")
+    window.location.replace("login.html");
+    ipcRenderer.send('relaunch');
+}
 try {
     var pin = new Store({
     name: "pin",
