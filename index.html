@@ -263,7 +263,7 @@ h1,h2,h3,h4,h5,p  {
   <!-- particles.js container --> <div id="particles-js" class="behind"></div> <span class="js-count-particles">--</span> particles </div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> </script>
   <main class="front" id="front" unselectable="on" onselectstart="return false;">
   <div class="w3-container">
-    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black hidden" id="welcome">Open Modal</button>
+    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black hidden" id="welcome">placeholder</button>
     <div id="id01" class="w3-modal">
       <div class="w3-modal-content">
         <div class="w3-container">
@@ -288,10 +288,10 @@ h1,h2,h3,h4,h5,p  {
   
     <div id="id02" class="w3-modal w3-round">
       <div class="w3-modal-content w3-round">
-        <div class="w3-container">
+        <div class="w3-container w3-round">
           <h1> Settings </h1>
           <h2>Please select what you want to change!</h2>
-          <button class="w3-button w3-black w3-hover" onclick="changename()">Change Name</button>
+          <button class="w3-button w3-black w3-hover w3-round" onclick="changename()">Change Name</button>
           <p></p>
           <main id="greeter">
             <p> Onload greeter? </p>
@@ -304,7 +304,7 @@ h1,h2,h3,h4,h5,p  {
              <p id="encstat" class="encstat">
               Fetching...
             </p>
-            <button class="w3-button w3-black encstart" id="encstart" onclick="encrypt69()">Start encrypting!</button>
+            <button class="w3-button w3-black encstart w3-round" id="encstart" onclick="encrypt69()">Start encrypting!</button>
             <p></p>
             <h1 class="hidden">h</h1>
           </main>
@@ -341,9 +341,9 @@ if (security.get('pin')) {
             </script>
           <p></p>
           <h1 class="hidden">h</h1>
-          <button class="w3-button w3-black w3-hover" onclick="reset()">Reset SnailPortal</button>
+          <button class="w3-button w3-black w3-hover w3-round" onclick="reset()">Reset SnailPortal</button>
           <p></p>
-          <button class="w3-button w3-black" onclick="exitsettings()">Exit</button>
+          <button class="w3-button w3-black w3-round" onclick="exitsettings()">Exit</button>
         </div>
       </div>
     </div>
@@ -380,7 +380,7 @@ return false;
       </div>
     </div>
   </div>
-<button class="settings" onclick="settings()">Settings</button>
+<button class="settings w3-button w3-white w3-round-xxlarge" onclick="settings()">Settings</button>
 <div id="namers" class="namers">
   <h1 style="display:inline-block;">Hello, <div style="height:1em" id="namedefine" style="display:block; float:right" ></div></h1>
 </div>
@@ -388,11 +388,11 @@ return false;
   <h2 class="w3-center">What do you want to do today?</h2>
   <h4 id="version" class="white"></h4>
 </p>
-<button class="w3-center w3-black w3-center butop" onclick="snailcreate()">Open SnailDOS-CREATE</button>
+<button class="w3-center w3-black w3-center butop w3-round" onclick="snailcreate()">Open SnailDOS-CREATE</button>
 <p></p>
-<button class="w3-center w3-black w3-center butop" onclick="snailhostopen()">Open SnailHost</button>
+<button class="w3-center w3-black w3-center butop w3-round" onclick="snailhostopen()">Open SnailHost</button>
 <p></p>
-  <button class="w3-center w3-black w3-center butop" onclick="window.close()">Exit</button>
+  <button class="w3-center w3-black w3-center butop w3-round" onclick="window.close()">Exit</button>
 <p></p>
 </main>
   <script>
