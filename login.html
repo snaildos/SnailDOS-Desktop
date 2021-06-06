@@ -65,7 +65,7 @@ alert("The pin entered is incorrect. Please, try again.")
 if(pin.get('isencrypted')) {
   console.log("Is encrypted.")
 } else {
-  alert("Decode error. :(")
+  alert("The database is corrupted. We just recovered it.")
 }
 pin.set('isencrypted', 'true')
 pin.set('pin', pass123)
