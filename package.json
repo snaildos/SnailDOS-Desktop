@@ -20,7 +20,7 @@
     "electron-builder": "22.11.5"
   },
   "dependencies": {
-    "bootstrap": "^5.0.0",
+    "bootstrap": "^5.0.2",
     "discord-rpc": "^3.1.4",
     "electron-store": "^8.0.0",
     "electron-updater": "^4.3.9",
