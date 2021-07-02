@@ -61,6 +61,7 @@ fs.unlinkSync(pin.path)
 
 console.log('Dcoded Complete.')
 console.log('Restarting...')
+localStorage.setItem('encdis', true)
 var enc = localStorage.getItem('encdis');
   
 (function($){
