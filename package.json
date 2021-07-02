@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.0.2",
-    "discord-rpc": "^3.1.4",
+    "discord-rpc": "^4.0.1",
     "electron-store": "^8.0.0",
     "electron-updater": "^4.3.10",
     "internet-available": "^1.0.0",
