@@ -4,10 +4,10 @@
             window.jQuery = window.$ = require('jquery');
             const { ipcRenderer } = require('electron');
         </script>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.snaildos.com/w3.css">
+        <script src="https://cdn.snaildos.com/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.snaildos.com/bootstrap.min.css">
+        <script src="https://cdn.snaildos.com/bootstrap.min.js"></script>
         <title>SnailPortal Setup</title>
                <script>
         $(document).ready(function () {
@@ -123,7 +123,7 @@ return false;
                 <p>
 
                 </p><form class="w3-center" onsubmit="store(); return false;"> 
-                <input class="name" id="name" name="name" type="name" id="email" required="true" placeholder="" />
+                <input class="name" id="name" name="name" type="name" id="email" required="true" placeholder="" maxlength="10" />
                 </form></h4><button id="3" class="ctrl w3-center w3-light-blue hidden">Next!</button><h2 class="hidden">h</h2></div>
                 <div class=""><h4 class="main" class="w3-center">4. Add-on's!<p></p> <button class="w3-button w3-blue-gray w3-center" onClick="enc()">Add encryption to load! (Security)</button><p>
                     <button id="3" class="ctrl w3-center w3-light-blue w3-center cls4" onclick="next()">Skip!</button>
