@@ -1,47 +1,88 @@
 <html>
+
 <head>
-  <title>Loading...</title>
-  <style>
-    @keyframes flickerAnimation {
-  0%   { opacity:1; }
-  50%  { opacity:0; }
-  100% { opacity:1; }
-}
-@-o-keyframes flickerAnimation{
-  0%   { opacity:1; }
-  50%  { opacity:0; }
-  100% { opacity:1; }
-}
-@-moz-keyframes flickerAnimation{
-  0%   { opacity:1; }
-  50%  { opacity:0; }
-  100% { opacity:1; }
-}
-@-webkit-keyframes flickerAnimation{
-  0%   { opacity:1; }
-  50%  { opacity:0; }
-  100% { opacity:1; }
-}
+    <title>Loading...</title>
+    <style>
+        @keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
 
-body {
-  background-color: black;
-}
+            50% {
+                opacity: 0;
+            }
 
-body {
-    display: flex; /* establish flex container */
-    justify-content: center; /* center flex items horizontally, in this case */
-    align-items: center; /* center flex items vertically, in this case */
-}
+            100% {
+                opacity: 1;
+            }
+        }
 
-.animate-flicker {
-   -webkit-animation: flickerAnimation 1s infinite;
-   -moz-animation: flickerAnimation 1s infinite;
-   -o-animation: flickerAnimation 1s infinite;
-    animation: flickerAnimation 1s infinite;
-}
-  </style>
-  </head>
-  <body>
+        @-o-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        body {
+            background-color: black;
+        }
+
+        body {
+            display: flex;
+            /* establish flex container */
+            justify-content: center;
+            /* center flex items horizontally, in this case */
+            align-items: center;
+            /* center flex items vertically, in this case */
+        }
+
+        .animate-flicker {
+            -webkit-animation: flickerAnimation 1s infinite;
+            -moz-animation: flickerAnimation 1s infinite;
+            -o-animation: flickerAnimation 1s infinite;
+            animation: flickerAnimation 1s infinite;
+        }
+    </style>
+</head>
+
+<body>
     <div class="animate-flicker"><img src="./ui/SnailDOS.png"></img></div>
-  </body>
-  </html>
+</body>
+
+</html>
