@@ -5,7 +5,7 @@
   "main": "main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/snaildos/snailportal.git"
+    "url": "https://github.com/snaildos/SnailDOS-Desktop.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
