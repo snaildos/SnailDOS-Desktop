@@ -93,7 +93,7 @@ function securitycreate() {
 
 
 function createWindow () {
-  mainWindow = new BrowserWindow({
+  mainWindow = new glasstron.BrowserWindow({
     width: 900,
     height: 700,
     show: false,
@@ -265,3 +265,8 @@ ipcMain.on('loginsucess', () => {
     console.log("Update check suc.")
   }, 5000);
 });
+ipcMain.on('appquit', () => {app.exit()})
+ipcMain.on('minimize', () => {mainWindow.minimize()})
+ipcMain.on('maximize', () => {mainWindow.maximize()})
+ipcMain.on('restore', () => {mainWindow.restore()})
+ipcMain.on('close', () => {mainWindow.close(); ipcMain.emit('login_exit');})
