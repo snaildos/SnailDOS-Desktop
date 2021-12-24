@@ -148,12 +148,16 @@ mainWindow.close()
 }
 
 function eulacreate() {
-  eula = new BrowserWindow({
+  eula = new glasstron.BrowserWindow({
     width: 500,
     height: 400,
     show: false,
     alwaysOnTop: true,
-    frame: false,
+    fullscreen: false,
+    titlebarStyle: "hiddenInset",
+    frame: windowframz,
+    titlebarStyle: 'hiddenInset',
+    blurType: global.blurType,
     modal: true,
     webPreferences: {
       nodeIntegration: true,
