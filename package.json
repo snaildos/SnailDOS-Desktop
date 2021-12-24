@@ -26,6 +26,7 @@
     "electron-updater": "4.4.0",
     "internet-available": "1.0.0",
     "isdev": "1.0.1",
+    "glasstron": "0.1.1",
     "jquery": "3.6.0",
     "say": "0.16.0",
     "winbox": "0.2.0"

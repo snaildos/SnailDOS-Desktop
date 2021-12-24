@@ -2,6 +2,7 @@ const { autoUpdater } = require('electron-updater');
 const { SSL_OP_EPHEMERAL_RSA } = require('constants');
 const { app, BrowserWindow, ipcMain, ipcRenderer } = require('electron');
 const { watchFile } = require('fs');
+const glasstron = require("glasstron");
 // Notify
 const { Notification } = require('electron')
 
