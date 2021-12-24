@@ -1,0 +1,7 @@
+{
+  "project": {
+    "name": "SnailDOS-Desktop",
+    "description": "The SnailDOS Desktop Application allows managment of all SnailDOS services!",
+    "version": "0.0.3"
+  }
+}
