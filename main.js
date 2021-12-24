@@ -100,7 +100,6 @@ function createWindow () {
     fullscreen: false,
     titlebarStyle: "hiddenInset",
     frame: windowframz,
-    titlebarStyle: 'hiddenInset',
     blurType: global.blurType,
     modal: true,
     blur: true,
