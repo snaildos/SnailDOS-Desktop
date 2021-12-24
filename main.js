@@ -29,6 +29,27 @@ function wait(ms)
     do { d2 = new Date(); }
     while(d2-d < ms);
 }
+
+// Blur Service
+if (process.platform == "darwin") {
+  app.whenReady().then(() => {
+    // macOS
+    global.blurType = "vibrancy";
+    global.windowFrame = "false";
+  });
+} else if (process.platform == "win32") {
+  app.whenReady().then(() => {
+    // Windows
+    global.blurType = "acrylic";
+    global.windowFrame = "false"; // The effect won't work properly if the frame
+    // is enabled on Windows
+  });
+} else {
+    // Linux
+    global.blurType = "blurbehind";
+    global.windowFrame = "true";
+}
+
 // Loading screen
 /// Start a init
 const createLoadingScreen = () => {
@@ -52,6 +73,8 @@ const createLoadingScreen = () => {
 };
 console.log("Loading screen ready.");
 
+// Convert boolean to string
+var windowframz = (global.windowFrame === 'true');
 
 function securitycreate() {
   securitywin = new BrowserWindow({
@@ -75,10 +98,15 @@ function createWindow () {
     height: 700,
     show: false,
     fullscreen: false,
+    titlebarStyle: "hiddenInset",
+    frame: windowframz,
+    titlebarStyle: 'hiddenInset',
+    blurType: global.blurType,
     modal: true,
     icon: 'snailfm.ico',
     webPreferences: {
       nodeIntegration: true,
+      nativeWindowOpen: true,
       contextIsolation: false,
     },
   });
