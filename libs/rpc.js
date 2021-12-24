@@ -5,8 +5,8 @@ const rpc = new RPC.Client({
 console.log("RPC loading...");
 rpc.on("ready", () => {
     rpc.setActivity({
-        details: "SnailPortal",
-        state: "Using SnailDOS",
+        details: "SnailDOS Desktop",
+        state: "Using SnailDOS App",
         startTimestamp: new Date(),
         largeImageKey: "largelogo_1_",
         largeImageText: "snaildos.com",
