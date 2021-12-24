@@ -103,7 +103,7 @@ function createWindow () {
     titlebarStyle: 'hiddenInset',
     blurType: global.blurType,
     modal: true,
-    icon: 'snailfm.ico',
+    icon: 'snaildos.ico',
     webPreferences: {
       nodeIntegration: true,
       nativeWindowOpen: true,
