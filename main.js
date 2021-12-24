@@ -103,6 +103,7 @@ function createWindow () {
     titlebarStyle: 'hiddenInset',
     blurType: global.blurType,
     modal: true,
+    blur: true,
     icon: 'snaildos.ico',
     webPreferences: {
       nodeIntegration: true,
@@ -156,13 +157,17 @@ function eulacreate() {
     fullscreen: false,
     titlebarStyle: "hiddenInset",
     frame: windowframz,
+    blur: true,
     titlebarStyle: 'hiddenInset',
     blurType: global.blurType,
     modal: true,
     webPreferences: {
       nodeIntegration: true,
+      nativeWindowOpen: true,
+      contextIsolation: false,
     }
   });
+  eula.setResizable(false);
 }
 
 function freehost() {
