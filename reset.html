@@ -75,6 +75,14 @@ window.location.href = "decandrm.html";
     h1,h2,h3,h4,p,div {
         color: white;
     }
+    * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
     </style>
 </head>
 <body>
@@ -85,7 +93,7 @@ window.location.href = "decandrm.html";
         </div>
       </header>
     <center>
-    <h1 class="w3-center">Do you want to reset SnailPortal?</h1>
+    <h1 class="w3-center noselect">Do you want to reset SnailPortal?</h1>
     <p></p>
     <button class="w3-button w3-white w3-center w3-round-xlarge" onclick="resets();">Continue</button>
     <p></p>

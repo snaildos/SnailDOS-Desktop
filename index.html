@@ -14,7 +14,7 @@ require('popper.js');
 <link rel="stylesheet" href="box/css/themes/modern.min.css">
 <link rel="stylesheet" href="box/css/themes/white.min.css">
 <script src="box/js/winbox.min.js"></script>
-  <title>SnailDOS Portal</title>
+  <title>SnailDOS</title>
   <script src="confetti.js"></script>
   <script>
     const { ipcRenderer } = require('electron');
@@ -132,14 +132,13 @@ var name = localStorage.getItem('name');
     display: block;
     z-index: 3;
 }
-html, body {margin: 0; height: 100%; overflow: hidden}
+html, body {margin: 0; height: 100%; overflow: hidden; background-color: rgba(255,255,255,0.5) !important; background: transparent !important;}
 
     body {
       box-sizing: border-box;
       margin: 0;
       padding: 20px;
       font-family: sans-serif;
-      background-color: #000000;
       text-align: center;
     }
     #notification {
@@ -187,7 +186,10 @@ h1,h2,h3,h4,h5,p  {
 .w3-container  {
   background-color: rgb(31, 29, 29);
 }
-/* ---- reset ---- */canvas{ display: block; vertical-align: bottom; } /* ---- particles.js container ---- */ #particles-js{ position:absolute; width: 100%; height: 100%; background-color: #000000; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
+#particles-js {
+  opacity: 0
+}
+/* ---- reset ---- */canvas{ display: block; vertical-align: bottom } /* ---- particles.js container ---- */ #particles-js{ position:absolute; width: 100%; height: 100%; background-color: #000000; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
 
   </style>
   <script>
