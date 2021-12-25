@@ -77,12 +77,18 @@ console.log("Loading screen ready.");
 var windowframz = (global.windowFrame === 'true');
 
 function securitycreate() {
-  securitywin = new BrowserWindow({
+  securitywin = new glasstron.BrowserWindow({
     width: 500,
     height: 600,
     show: false,
     alwaysOnTop: false,
     frame: true,
+    fullscreen: false,
+    titlebarStyle: "hiddenInset",
+    frame: false,
+    blurType: global.blurType,
+    modal: true,
+    blur: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
