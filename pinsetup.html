@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="pad/numpad-dark.css"/>
         <script src="pad/numpad.js"></script>
         <link rel="stylesheet" href="https://cdn.snaildos.com/w3.css">
+        <link rel="stylesheet" href="./titlebar/titlebar.css">
         <script src="https://cdn.snaildos.com/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdn.snaildos.com/bootstrap.min.css">
         <script src="https://cdn.snaildos.com/bootstrap.min.js"></script>
@@ -65,8 +66,9 @@
             font-size: 50px;
         }
         body {
-            background-color: #000000;
-            user-select: none; /* supported by Chrome and Opera */
+   background-color: rgba(255,255,255,0.5);
+   background: transparent;
+   user-select: none; /* supported by Chrome and Opera */
    -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */
    -moz-user-select: none; /* Firefox */
@@ -111,10 +113,16 @@ console.log('Enc complete.')
         </script>
     </head>
     <body>
+        <header data-for-os="windows" id="titlebar" class="titlebar">
+            <div id="window-controls">
+              <div onclick="ipcRenderer.send('minimize')" class="button" id="min-button"><img class="icon" srcset="./icons/titlebar/min-w-10.png 1x, ./icons/titlebar/min-w-12.png 1.25x, ./icons/titlebar/min-w-15.png 1.5x, ./icons/titlebar/min-w-15.png 1.75x, ./icons/titlebar/min-w-20.png 2x, ./icons/titlebar/min-w-20.png 2.25x, ./icons/titlebar/min-w-24.png 2.5x, ./icons/titlebar/min-w-30.png 3x, ./icons/titlebar/min-w-30.png 3.5x" draggable="false" /></div>
+              <div onclick="ipcRenderer.send('close')" class="button" id="close-button"><img class="icon" srcset="./icons/titlebar/close-w-10.png 1x, ./icons/titlebar/close-w-12.png 1.25x, ./icons/titlebar/close-w-15.png 1.5x, ./icons/titlebar/close-w-15.png 1.75x, ./icons/titlebar/close-w-20.png 2x, ./icons/titlebar/close-w-20.png 2.25x, ./icons/titlebar/close-w-24.png 2.5x, ./icons/titlebar/close-w-30.png 3x, ./icons/titlebar/close-w-30.png 3.5x" draggable="false" /></div>
+            </div>
+          </header>
         <div class="divs">
             <center>
-            <div class="cls1"><h2 class="main" class="w3-center">Welcome to the interactive encrypter<p><p><button id="1" class="ctrl w3-center w3-light-blue w3-center">Next!</button><h2 class="hidden">h</h2></p></h2></div>
-            <div class="cls2"><h2 class="main" class="w3-center">Any password typed in here, will create a new local database and encrypt it. Forgetting your pin = loosing everything.<p><button id="2" class="ctrl w3-center w3-light-blue w3-center">AGREE!</button><h2 class="hidden">h</h2></p></h2> <p></div>
+            <div class="cls1"><h2 class="main" class="w3-center">Welcome the the encryptor.<p><p><button id="1" class="ctrl w3-center w3-white w3-round-xlarge">Next!</button><h2 class="hidden">h</h2></p></h2></div>
+            <div class="cls2"><h2 class="main" class="w3-center">Any password typed in here, will create a new local database and encrypt it. Forgetting your pin = loosing everything.<p><button id="2" class="w3-center w3-white w3-round-xlarge ctrl">Ok</button><h2 class="hidden">h</h2></p></h2> <p></div>
             <div class="cls3"><h4 class="main" class="w3-center"><h2 class="w3-center">Enter a pin:</h2>
                 <p>
                     <h2 class="w3-center">Press the "Start Encryption!" button when completed..</h2>
@@ -125,10 +133,10 @@ console.log('Enc complete.')
                 <input class="passbox" id="passbox" name="passbox" type="password" id="passbox" required="true" placeholder="" />
                 <p>
                     <h1 class="invisible">h</h1>
-                    <button class="w3-button w3-white w3-round" onclick="store3()">Start Encryption!</button>
+                    <button class="w3-center w3-white w3-round-xlarge ctrl" onclick="store3()">Start Encryption!</button>
                 </p>
                 </form></h4><h2 class="hidden">h</h2></div>
-            <div class="cls4"><h4 class="main" class="w3-center">Finished.<p></p> <button class="w3-button w3-blue-gray w3-center" onClick="complete()">Relaunch</button></h4></div>
+            <div class="cls4"><h4 class="main" class="w3-center">Finished.<p></p> <button class="w3-center w3-white w3-round-xlarge ctrl" onClick="complete()">Relaunch</button></h4></div>
         </div>
         <script>
             window.addEventListener("load", function(){

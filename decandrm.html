@@ -7,6 +7,7 @@
         </script>
             <link rel="stylesheet" href="pad/numpad-dark.css"/>
             <script src="pad/numpad.js"></script>
+            <link rel="stylesheet" href="./titlebar/titlebar.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -17,7 +18,8 @@
             font-size: 50px;
         }
         body {
-            background-color: #000000;
+            background-color: rgba(255,255,255,0.5);
+             background: transparent;
             user-select: none; /* supported by Chrome and Opera */
    -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */
@@ -83,6 +85,12 @@ var enc = localStorage.getItem('encdis');
     </head>
     <body>
         <div class="divs">
+            <header data-for-os="windows" id="titlebar" class="titlebar">
+                <div id="window-controls">
+                  <div onclick="ipcRenderer.send('minimize')" class="button" id="min-button"><img class="icon" srcset="./icons/titlebar/min-w-10.png 1x, ./icons/titlebar/min-w-12.png 1.25x, ./icons/titlebar/min-w-15.png 1.5x, ./icons/titlebar/min-w-15.png 1.75x, ./icons/titlebar/min-w-20.png 2x, ./icons/titlebar/min-w-20.png 2.25x, ./icons/titlebar/min-w-24.png 2.5x, ./icons/titlebar/min-w-30.png 3x, ./icons/titlebar/min-w-30.png 3.5x" draggable="false" /></div>
+                  <div onclick="ipcRenderer.send('close')" class="button" id="close-button"><img class="icon" srcset="./icons/titlebar/close-w-10.png 1x, ./icons/titlebar/close-w-12.png 1.25x, ./icons/titlebar/close-w-15.png 1.5x, ./icons/titlebar/close-w-15.png 1.75x, ./icons/titlebar/close-w-20.png 2x, ./icons/titlebar/close-w-20.png 2.25x, ./icons/titlebar/close-w-24.png 2.5x, ./icons/titlebar/close-w-30.png 3x, ./icons/titlebar/close-w-30.png 3.5x" draggable="false" /></div>
+                </div>
+              </header>
             <center>
             <div class="cls3"><h4 class="main" class="w3-center"><h2 class="w3-center">Decrytion Helper:</h2>
                 <h2>You are about to uninstall encrpytion, this is because you clicked on the reset button, or the disable encryption button.</h2>

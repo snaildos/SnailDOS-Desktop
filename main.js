@@ -29,6 +29,27 @@ function wait(ms)
     do { d2 = new Date(); }
     while(d2-d < ms);
 }
+
+// Blur Service
+if (process.platform == "darwin") {
+  app.whenReady().then(() => {
+    // macOS
+    global.blurType = "vibrancy";
+    global.windowFrame = "false";
+  });
+} else if (process.platform == "win32") {
+  app.whenReady().then(() => {
+    // Windows
+    global.blurType = "acrylic";
+    global.windowFrame = "false"; // The effect won't work properly if the frame
+    // is enabled on Windows
+  });
+} else {
+    // Linux
+    global.blurType = "blurbehind";
+    global.windowFrame = "true";
+}
+
 // Loading screen
 /// Start a init
 const createLoadingScreen = () => {
@@ -52,14 +73,22 @@ const createLoadingScreen = () => {
 };
 console.log("Loading screen ready.");
 
+// Convert boolean to string
+var windowframz = (global.windowFrame === 'true');
 
 function securitycreate() {
-  securitywin = new BrowserWindow({
+  securitywin = new glasstron.BrowserWindow({
     width: 500,
     height: 600,
     show: false,
     alwaysOnTop: false,
     frame: true,
+    fullscreen: false,
+    titlebarStyle: "hiddenInset",
+    frame: false,
+    blurType: global.blurType,
+    modal: true,
+    blur: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -70,15 +99,20 @@ function securitycreate() {
 
 
 function createWindow () {
-  mainWindow = new BrowserWindow({
+  mainWindow = new glasstron.BrowserWindow({
     width: 900,
     height: 700,
     show: false,
     fullscreen: false,
+    titlebarStyle: "hiddenInset",
+    frame: windowframz,
+    blurType: global.blurType,
     modal: true,
-    icon: 'snailfm.ico',
+    blur: true,
+    icon: 'snaildos.ico',
     webPreferences: {
       nodeIntegration: true,
+      nativeWindowOpen: true,
       contextIsolation: false,
     },
   });
@@ -120,17 +154,25 @@ mainWindow.close()
 }
 
 function eulacreate() {
-  eula = new BrowserWindow({
+  eula = new glasstron.BrowserWindow({
     width: 500,
     height: 400,
     show: false,
     alwaysOnTop: true,
-    frame: false,
+    fullscreen: false,
+    titlebarStyle: "hiddenInset",
+    frame: windowframz,
+    blur: true,
+    titlebarStyle: 'hiddenInset',
+    blurType: global.blurType,
     modal: true,
     webPreferences: {
       nodeIntegration: true,
+      nativeWindowOpen: true,
+      contextIsolation: false,
     }
   });
+  eula.setResizable(false);
 }
 
 function freehost() {
@@ -237,3 +279,8 @@ ipcMain.on('loginsucess', () => {
     console.log("Update check suc.")
   }, 5000);
 });
+ipcMain.on('appquit', () => {app.exit()})
+ipcMain.on('minimize', () => {mainWindow.minimize()})
+ipcMain.on('maximize', () => {mainWindow.maximize()})
+ipcMain.on('restore', () => {mainWindow.restore()})
+ipcMain.on('close', () => {mainWindow.close(); ipcMain.emit('login_exit');})

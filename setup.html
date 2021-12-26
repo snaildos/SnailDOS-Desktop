@@ -8,6 +8,7 @@
         <script src="https://cdn.snaildos.com/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdn.snaildos.com/bootstrap.min.css">
         <script src="https://cdn.snaildos.com/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./titlebar/titlebar.css">
         <title>SnailPortal Setup</title>
                <script>
         $(document).ready(function () {
@@ -63,7 +64,9 @@
             font-size: 50px;
         }
         body {
-            background-color: #000000;
+            color: white;
+            background-color: rgba(255,255,255,0.5) !important;
+             background: transparent !important;
         }
 
         .hidden  {
@@ -112,10 +115,16 @@ return false;
         </script>
     </head>
     <body>
+        <header data-for-os="windows" id="titlebar" class="titlebar">
+            <div id="window-controls">
+              <div onclick="ipcRenderer.send('minimize')" class="button" id="min-button"><img class="icon" srcset="./icons/titlebar/min-w-10.png 1x, ./icons/titlebar/min-w-12.png 1.25x, ./icons/titlebar/min-w-15.png 1.5x, ./icons/titlebar/min-w-15.png 1.75x, ./icons/titlebar/min-w-20.png 2x, ./icons/titlebar/min-w-20.png 2.25x, ./icons/titlebar/min-w-24.png 2.5x, ./icons/titlebar/min-w-30.png 3x, ./icons/titlebar/min-w-30.png 3.5x" draggable="false" /></div>
+              <div onclick="ipcRenderer.send('close')" class="button" id="close-button"><img class="icon" srcset="./icons/titlebar/close-w-10.png 1x, ./icons/titlebar/close-w-12.png 1.25x, ./icons/titlebar/close-w-15.png 1.5x, ./icons/titlebar/close-w-15.png 1.75x, ./icons/titlebar/close-w-20.png 2x, ./icons/titlebar/close-w-20.png 2.25x, ./icons/titlebar/close-w-24.png 2.5x, ./icons/titlebar/close-w-30.png 3x, ./icons/titlebar/close-w-30.png 3.5x" draggable="false" /></div>
+            </div>
+          </header>
         <div class="divs">
             <center>
-            <div class="cls1"><h2 class="main" class="w3-center">Welcome to the setup of SnailPortal<p><p><button id="1" class="ctrl w3-center w3-light-blue w3-center">Next!</button><h2 class="hidden">h</h2></p></h2></div>
-            <div class="cls2"><h2 class="main" class="w3-center">By using this software, you accept using the EULA. Pressing "AGREE" means you agree to the terms.<p><button id="2" class="ctrl w3-center w3-light-blue w3-center">AGREE!</button><p><button onclick="eulao()" class="ctrl w3-center w3-light-blue w3-center">View Terms</button></p><h2 class="hidden">h</h2></p></h2> <p></div>
+            <div class="cls1"><h2 class="main" class="w3-center">Welcome to the setup of SnailPortal<p><p><button id="1" class="ctrl w3-button w3-white w3-center w3-round-xlarge">Next!</button><h2 class="hidden">h</h2></p></h2></div>
+            <div class="cls2"><h2 class="main" class="w3-center">By using this software, you accept using the EULA. Pressing "AGREE" means you agree to the terms.<p><button id="2" class="ctrl w3-button w3-white w3-center w3-round-xlarge">I agree</button><p><button onclick="eulao()" class="ctrl w3-button w3-white w3-center w3-round-xlarge">View Terms</button></p><h2 class="hidden">h</h2></p></h2> <p></div>
             <div class="cls3"><h4 class="main" class="w3-center"><h2 class="w3-center">Enter your name:</h2>
                 <p>
                     <h2 class="w3-center">Press the "enter" key when complete.</h2>
@@ -123,12 +132,14 @@ return false;
                 <p>
 
                 </p><form class="w3-center" onsubmit="store(); return false;"> 
-                <input class="name" id="name" name="name" type="name" id="email" required="true" placeholder="" maxlength="10" />
+                <input class="name" id="name" name="name" type="name" id="email" required="true" placeholder="" maxlength="10" style="color: black;"/>
                 </form></h4><button id="3" class="ctrl w3-center w3-light-blue hidden">Next!</button><h2 class="hidden">h</h2></div>
-                <div class=""><h4 class="main" class="w3-center">4. Add-on's!<p></p> <button class="w3-button w3-blue-gray w3-center" onClick="enc()">Add encryption to load! (Security)</button><p>
-                    <button id="3" class="ctrl w3-center w3-light-blue w3-center cls4" onclick="next()">Skip!</button>
+                <div class=""><h4 class="main" class="w3-center">4. Addons<p></p>
+                    <button class="w3-button w3-blue w3-center w3-round-xlarge" onClick="enc()">Add password on startup!</button><p>
+                        <br>
+                    <button id="3" class="w3-button w3-blue w3-center w3-round-xlarge cls4" onclick="next()">Skip!</button>
                 </p></h4></div>
-            <div class="cls5"><h4 class="main" class="w3-center">5. Let's start!<p></p> <button class="w3-button w3-blue-gray w3-center" onClick="complete()">Start</button></h4></div>
+            <div class="cls5"><h4 class="main" class="w3-center">5. Let's start!<p></p> <button class="ctrl w3-button w3-white w3-center w3-round-xlarge" onClick="complete()">Start</button></h4></div>
         </div>
         <div class="w3-center">
             
