@@ -1,146 +1,145 @@
 <!DOCTYPE html>
 <head>
-  <link rel="stylesheet" href="https://cdn.snaildos.com/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.snaildos.com/w3.css">
-    <script>
-    window.jQuery = window.$ = require('jquery');
-    window.$ = $;
-require('bootstrap');
-window.$ = $;
-require('popper.js');
-</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/railscasts.min.css">
-<link rel="stylesheet" href="box/css/winbox.min.css">
-<link rel="stylesheet" href="box/css/themes/modern.min.css">
-<link rel="stylesheet" href="box/css/themes/white.min.css">
-<script src="box/js/winbox.min.js"></script>
-  <title>SnailDOS</title>
-  <script src="confetti.js"></script>
-  <script>
-    const { ipcRenderer } = require('electron');
-    const Store = require('electron-store');
-   const security = new Store();
-    //security
-    if (security.get('loading')) {
-console.log('Usually this would throw a err, but mani would of picked up a security problem.')
-} else {
-  console.log("Security check sucess.")
-}
-  </script>
-  <script>
-    //boot checker
-    $("settings").hide()
-  </script>
-    <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
-    </script>
-  <script>
-    // update check
-    (function($){
-  $(document).ready(function() {
-  
-  var setup = localStorage.getItem('setup');
-  
-  if(setup != 'true'){
-    confetti.stop();
-    $("div").hide();
-    console.log('Setup not finished.');
-    window.location.href = "setup.html";
-  }
-  
-  });
-  })(jQuery);
-
-      // firstboot check
-      (function($){
-  $(document).ready(function() {
-  
-  var firstime = localStorage.getItem('firstime');
-  
-  if(firstime != 'false'){
-    $(".namers").hide();
-    console.log('First boot!');
-    $("#welcome").click();
-    confetti.start()
-  }
-  
-  });
-  })(jQuery);
-
-  //enc 
-  (function($){
-  $(document).ready(function() {
-  
-  var enc = localStorage.getItem('enc');
-  
-  if(enc == 'true'){
-    console.log('Addon log!')
-    localStorage.setItem("enc", false);
-    window.location.replace("pinsetup.html");
-  }
-  });
-  })(jQuery);
-  </script>
-  <script>
-var name = localStorage.getItem('name');
-
-    function complete() {
-      confetti.stop()
-      localStorage.setItem("firstime", "false");
-      $(".namers").show();
-      document.getElementById('id01').style.display='none'
-    }
-  </script>
-  <script>
-    //settings
-    function settings()  {
-      $(".namers").hide()
-      $("#settingstbh").click();
-    };
-    
-    function exitsettings()  {
-      document.getElementById('id02').style.display='none'
-      $(".namers").show()
-    }
-    
-    function changename()  {
-      $("#namechange").click();
-    }
-
-    function reset()  {
-      window.location.href = "reset.html";
-    }
-  </script>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="./titlebar.css">
   <style>
-.front {
-    display: block;
-    z-index: 5;
-    position: relative;
-}
-.box-left-mini .front span {
-    background: #fff
-}
-
-.box-left-mini .behind_container {
-    background-color: #ff0;
-    position: relative;
-    top: -18px;
-}
-.box-left-mini .behind {
-    display: block;
-    z-index: 3;
-}
-html, body {margin: 0; height: 100%; overflow: hidden; background-color: rgba(255,255,255,0.5) !important; background: transparent !important;}
-
-    body {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 20px;
-      font-family: sans-serif;
-      text-align: center;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+    </style>
+  <script>
+    (function() {
+var htmlElement = document.documentElement;
+    if (navigator.platform.match(/(Mac|MacIntel)/i)) {
+        htmlElement.className = 'mac';
+    } else if (navigator.platform.match(/(Windows|Win32|Win64)/i)) {
+        htmlElement.className = 'windows';
+    } else if (navigator.platform.match(/(Linux)/i)) {
+        htmlElement.className = 'linux';
     }
+    document.addEventListener('click', function(event) {
+        var target = event.target;
+        if (target.getAttribute && target.getAttribute('data-action') === 'switch-os') {
+        event.preventDefault();
+        htmlElement.className = target.getAttribute('data-os')
+        }
+    })
+})();
+  </script>
+  <script>
+    window.jQuery = window.$ = require('jquery');
+    const axios = require('axios')
+</script>
+    <script>
+    // Needs window render
+    require('./renderer.js')
+  </script>
+<script>
+  // update check
+  (function($){
+$(document).ready(function() {
+
+var version = localStorage.getItem('version');
+
+if(version != '2.0.9'){
+  console.log('Latest update is not ready.')
+  window.location.href = "update.html";
+}
+
+});
+})(jQuery);
+</script>
+<script>
+  // oobe
+  (function($){
+$(document).ready(function() {
+
+var consent = localStorage.getItem('cookie-consent');
+
+if(consent != 'true'){
+  $('#cookie').fadeIn();
+  confetti.start()
+}
+
+$('#cookie-ok').click(function(event){
+  localStorage.setItem('cookie-consent', 'true');
+  $('#cookie').fadeOut();
+  confetti.stop()
+});
+
+});
+})(jQuery);
+</script>
+</script>
+<script src="./lib/confetti.min.js"></script>
+  <link rel="icon" href="snailfm.png">
+  <script src="./YoutubeJS/video.js"></script>
+  <link href="./YoutubeJS/video-js.css" rel="stylesheet">
+  <script src="./YoutubeJS/Youtube.js"></script>
+  <link rel="stylesheet" href="https://cdn.snaildos.com/w3.css">
+  <link rel="stylesheet" href="https://cdn.snaildos.com/bootstrap.min.css">
+  <script src="https://cdn.snaildos.com/bootstrap.min.js"></script>
+  <title>SnailFM</title>
+  <style>
+
+    html, body {
+  width: 100%;
+  height:100%;
+  background-color: rgba(255,255,255,0.5);
+  background: transparent;
+  opacity 0.0;
+}
+
+.modal-backdrop {
+z-index: -1; // Hot Fix for broken backdrop
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 20px;
+  font-family: sans-serif;
+  background-color: #ffffff;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.center { margin: 0 auto; width: 400px; }
+
+h1  {
+  color: black;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+p,h1,h2,h3,h4,h5,div {
+  font-family: 'Roboto', sans-serif;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
     #notification {
       position: fixed;
       bottom: 20px;
@@ -151,256 +150,166 @@ html, body {margin: 0; height: 100%; overflow: hidden; background-color: rgba(25
       background-color: white;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
-    .settings {
-     line-height: 20px;
-     width: 70px;
-     font-size: 10pt;
-     font-family: tahoma;
-     margin-top: 1px;
-     margin-right: 2px;
-     position:absolute;
-     top:0;
-     right:0;
- }
     .hidden {
       display: none;
     }
 
-    .butop  {
-      font-size: 30px;
+    .video-stream html5-main-video  {
+      display: none;
     }
 
-    .dark {
-   background: #ffffff;
-   color: #efefef;
+    .hiddentext {
+      text-indent: -9999px;
+    }
+
+    .settings {
+  position: absolute;
+  top: 30px;
+  right: 16px;
+  font-size: 18px;
 }
 
-h1,h2,h3,h4,h5,p  {
-  color: white;
+/* Dashed border */
+hr.dashed {
+  border-top: 3px dashed #bbb;
 }
 
-.notif {
-  color: black;
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
-.w3-container  {
-  background-color: rgb(31, 29, 29);
+/* Dotted border */
+hr.dotted {
+  border-top: 3px dotted #bbb;
 }
-#particles-js {
-  opacity: 0
-}
-/* ---- reset ---- */canvas{ display: block; vertical-align: bottom } /* ---- particles.js container ---- */ #particles-js{ position:absolute; width: 100%; height: 100%; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
 
+/* Solid border */
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+/* Rounded border */
+hr.rounded {
+  border-top: 8px solid #bbb;
+  border-radius: 5px;
+}
+
+hr.roundedd {
+  border-top: 8px solid rgb(0, 0, 0);
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.nowplay  {
+  font-size: 25px;
+}
+
+#cookie{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(167, 23, 23); /* Fallback color */
+}
+    #cookie-wrapper{
+        display: flex;
+        flex-direction: row;
+        padding: .6rem 0;
+    }
+
+        #cookie-content{
+            border-right: 1px solid #1e67af;
+        }
+
+        #cookie-ok{
+            border: 0;
+            background: none;
+            color: rgb(255, 0, 212);
+        }
   </style>
-  <script>
-    function snailhostopen(){
-      console.log("open snailhost")
-      new WinBox("SnailHost", {
-    id: "snailhost",
-    border: 4,
-    width: 500,
-    height: 400,
-    x: "center",
-    y: "center",
-    max: false,
-    class: ["no-full", "no-max"],
-    top: 50,
-    right: 50,
-    bottom: 0,
-    left: 50,
-      url: "https://host.snaildos.com"
-});
-    }
-    function snailcreate(){
-      console.log("Start WorkSpace")
-      window.location.replace("snailcreate.html");
-    }
-  </script>
-  <script>
-    var say = require('say');
-    async function greetname(){
-    function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}   
-    var say = require('say');
-    
-    say.speak(`Hello`,  0.5, (err) => {
-        if (err) {
-            return console.error(err);
-        }
-    
-        console.log('Text has been spoken.');
-    });
-    
-    await sleep(1000);
-    say.speak(`${name}`,  0.5, (err) => {
-        if (err) {
-            return console.error(err);
-        }
-    
-        console.log('Text has been spoken.');
-    });
-  }
-    </script>
-      <script>
-        var nameis = localStorage.getItem('name');
-      
-        if(nameis === 'SnailLord'){
-          console.log("EasterEgg #1")
-          var audio = new Audio('./sounds/egg.mp3');
-    audio.play();
-        }
-    
-        var greetnamec = localStorage.getItem('greeter');
-      
-      if(greetnamec === 'true'){
-        console.log("Greeting name...")
-        greetname();
-        console.log("Sucess.")
-      }
-      </script>
 </head>
+  <header data-for-os="windows" id="titlebar" class="titlebar">
+    <div id="window-controls">
+      <div onclick="ipcRenderer.send('minimize')" class="button" id="min-button"><img class="icon" srcset="./icons/titlebar/min-w-10.png 1x, ./icons/titlebar/min-w-12.png 1.25x, ./icons/titlebar/min-w-15.png 1.5x, ./icons/titlebar/min-w-15.png 1.75x, ./icons/titlebar/min-w-20.png 2x, ./icons/titlebar/min-w-20.png 2.25x, ./icons/titlebar/min-w-24.png 2.5x, ./icons/titlebar/min-w-30.png 3x, ./icons/titlebar/min-w-30.png 3.5x" draggable="false" /></div>
+      <div onclick="ipcRenderer.send('close')" class="button" id="close-button"><img class="icon" srcset="./icons/titlebar/close-w-10.png 1x, ./icons/titlebar/close-w-12.png 1.25x, ./icons/titlebar/close-w-15.png 1.5x, ./icons/titlebar/close-w-15.png 1.75x, ./icons/titlebar/close-w-20.png 2x, ./icons/titlebar/close-w-20.png 2.25x, ./icons/titlebar/close-w-24.png 2.5x, ./icons/titlebar/close-w-30.png 3x, ./icons/titlebar/close-w-30.png 3.5x" draggable="false" /></div>
+    </div>
+  </header>
 <body>
-  <!-- particles.js container --> <div id="particles-js" class="behind"></div> <span class="js-count-particles"></span> </div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> </script>
-  <main class="front" id="front" unselectable="on" onselectstart="return false;">
-  <div class="w3-container">
-    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black hidden" id="welcome">placeholder</button>
-    <div id="id01" class="w3-modal">
-      <div class="w3-modal-content">
-        <div class="w3-container">
-          <h1> Thank you! </h1>
-          <h2>Thank you for using SnailDOS! Press the start button to start logging in and using SnailPortal!</h2>
-          <p></p>
-          <button class="w3-button w3-black" onclick="complete()">Start!</button>
-        </div>
-      </div>
+  <div class="content">
+  <button type="button" class="settings w3-button w3-round-xlarge" data-toggle="modal" data-target="#myModal">Settings</button>
+<div class="noselect">
+  <div id="cookie">
+    <div id="cookie-wrapper">
+      <div id="cookie-content" class="h1">Welcome to SnailFM! <p>For more infomation, visit https://snaildos.com/snailfm</p>Hit the let's go button too start using this software! Enjoy!</div>
+        <button id="cookie-ok">Let's go!</button>
     </div>
-  </div>
-
-<script>
-  function encrypt69(){
-    window.location.replace("pinsetup.html");
-  }
-</script>
-
-
-  <div class="w3-container">
-    <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-black hidden" id="settingstbh">opencodelol</button>
-  
-    <div id="id02" class="w3-modal w3-round">
-      <div class="w3-modal-content w3-round">
-        <div class="w3-container w3-round-large">
-          <h1> Settings </h1>
-          <h2>Please select what you want to change!</h2>
-          <button class="w3-button w3-black w3-hover w3-round" onclick="changename()">Change Name</button>
-          <p></p>
-          <main id="greeter">
-            <p> Onload greeter? </p>
-            <label class="switch">
-              <input type="checkbox" onclick="greet()" id="greeterbox" >
-              <span class="slider"></span>
-            </label>
-            <p class="white">Encryption
-            Encryption is currently</p>
-             <p id="encstat" class="encstat">
-              Fetching...
-            </p>
-            <button class="w3-button w3-black encstart w3-round" id="encstart" onclick="encrypt69()">Start encrypting!</button>
-            <p></p>
-            <h1 class="hidden">h</h1>
-          </main>
-          </p>
-            <script>
-// greeter
-$('#greeter').toggleClass(localStorage.toggled);
-
-function greet() {
-  if (localStorage.greeter != 'true') {
-    localStorage.greeter = "true";
-     
-  } else {
-    localStorage.greeter = "";
-  }
-}
-
-var greeterval = localStorage.getItem('greeter');
-      
-      if(greeterval === 'true'){
-   $( '#greeterbox' ).prop( "checked", true )
-} else {
-  $( '#greeterbox' ).prop( "checked", false )
-}
-
-// enc
-$("#encstat").text("Loading...");
-if (security.get('pin')) {
-  $("#encstat").text("Enabled");
-  $(".encstart").hide();
-} else {
-  $("#encstat").text("Disabled");
-}
-            </script>
-          <p></p>
-          <h1 class="hidden">h</h1>
-          <button class="w3-button w3-black w3-hover w3-round" onclick="reset()">Reset SnailPortal</button>
-          <p></p>
-          <button class="w3-button w3-black w3-round" onclick="exitsettings()">Exit</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="w3-container">
-    <button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-black hidden" id="namechange">opencodelol</button>
-  
-    <Script>
-      function store()  {
-var username = $('#name').val();
-localStorage.setItem("name", username);
-$("#namechangeexit").click()
-return false;
-      }
-  </script>
-
-    <div id="id03" class="w3-modal">
-      <div class="w3-modal-content">
-        <div class="w3-container">
-          <h1> Name-Changer </h1>
-          <div class="cls3"><h4 class="main" class="w3-center"><h2 class="w3-center">Enter your name:</h2>
-            <p>
-                <h2 class="w3-center">Press the "enter" key when complete.</h2>
-            </p>
-            <p>
-
-            </p><form class="w3-center" onsubmit="store()"> 
-              <input class="name" id="name" name="name" type="name" id="email" required="true" placeholder="" maxlength="10" />
-              </form></div>
-          <p></p>
-          <button class="w3-button w3-black" id="namechangexit" onclick="document.getElementById('id03').style.display='none'">Cancel</button>
-        </div>
-      </div>
-    </div>
-  </div>
-<button class="settings w3-button w3-white w3-round-xxlarge" onclick="settings()">Settings</button>
-<div id="namers" class="namers">
-  <h1 style="display:inline-block;">Hello, <div style="height:1em" id="namedefine" style="display:block; float:right" ></div></h1>
 </div>
-<p>
-  <h2 class="w3-center">What do you want to do today?</h2>
-  <h4 id="version" class="white"></h4>
-</p>
-<button class="w3-center w3-black w3-center butop w3-round" onclick="snailcreate()">Open SnailDOS-CREATE</button>
-<p></p>
-<button class="w3-center w3-black w3-center butop w3-round" onclick="snailhostopen()">Open SnailHost</button>
-<p></p>
-  <button class="w3-center w3-black w3-center butop w3-round" onclick="window.close()">Exit</button>
-<p></p>
-</main>
-  <script>
-      document.getElementById("namedefine").innerHTML = localStorage.getItem("name");
-    </script>
-  <div id="notification" class="hidden notif">
-    <p id="message" class="notif"></p>
+
+  <h1>SnailFM</h1>
+  <h4>Powered by <b>SnailDOS</b> team</h4>
+
+  <p id="version"></p>
+  <div id="notification" class="hidden">
+    <p id="message"></p>
     <button id="close-button" onClick="closeNotification()">
       Close
     </button>
@@ -408,12 +317,14 @@ return false;
       Restart
     </button>
   </div>
+</div>
   <script>
+    const { ipcRenderer } = require('electron');
     const version = document.getElementById('version');
     const notification = document.getElementById('notification');
     const message = document.getElementById('message');
     const restartButton = document.getElementById('restart-button');
-    
+
     ipcRenderer.send('app_version');
     ipcRenderer.on('app_version', (event, arg) => {
       ipcRenderer.removeAllListeners('app_version');
@@ -436,14 +347,126 @@ return false;
     function closeNotification() {
       notification.classList.add('hidden');
     }
-    
+
     function restartApp() {
       ipcRenderer.send('restart_app');
     }
   </script>
-  </main id="front">
-    <script>
-      particlesJS("particles-js", {"particles":{"number":{"value":265,"density":{"enable":true,"value_area":800}},"color":{"value":"#1e1a1a"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":1,"random":true,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":8.00864934128859,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":4.805189604773155,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":true,"rotateX":600,"rotateY":2162.3353221479197}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"bubble"},"onclick":{"enable":false,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});var count_particles; update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
-    </script>
+<p>
+</p>
+  <video
+    id="vid1"
+    class="hidden"
+    width="0" height="0"
+    poster="play.png"
+    data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=vce-j1f6CVQ"}] }'
+  >
+  </video>
+  <script>
+var amogus = "https://www.youtube.com/watch?v=vce-j1f6CVQ"
+    videojs("vid1", {
+    controlBar: {
+      fullscreenToggle: false
+    }
+});
+  </script>
+                  <form action="">
+                    <h2 class="noselect">Pause/Play:</h2>
+                    <input type="button" id="4" class="w3-btn w3-black w3-round" value="PLAY"
+                           onclick="toggle2();">
+                    </form>
+
+                    <script>
+                      var player = videojs('vid1');
+                      function toggle2()
+                      {
+                        if(document.getElementById("4").value=="PLAY"){
+                         document.getElementById("4").value="PAUSE";
+                         player.play()}
+
+                        else if(document.getElementById("4").value=="PAUSE"){
+                         document.getElementById("4").value="PLAY";
+                         player.pause()}
+                      }
+                                    </script>
+    <p id='nowPlaying' class="nowplay">Fetching data...</p>
+<script>
+  const Store = require('electron-store');
+  const store = new Store();
+  token = store.get('token')
+  if (store.get('logged_in') === false) {
+   setInterval(()=>{
+    axios.get('http://api.snaildos.com/radio').then((value) => {
+      document.getElementById('nowPlaying').innerText = value.data.playing || 'Nothing'
+    })
+  },7000);
+} else {
+  setInterval(()=>{
+    axios.get('https://api.snaildos.com/streambop', {
+      headers: {
+      Authorization: token
+  }}).then((value) => {
+      document.getElementById('nowPlaying').innerText = value.data.playing || 'Nothing'
+    })
+ },4000);
+}
+</script>
+<br>
+<br>
+<br>
+<div class="w3-center streamvolume noselect">
+  <input class="vertical" type="range" name="rangeInput" class="fader" min="0" max="100" oninput="updateTextInput(this.value);" id="volu23"></input>
+  <input type="text" id="textInput" style="font-size:10px;" class="w3-black mixerdialogue w3-round-xlarge" value="Drag Slider!" readonly></input>
+  <br>
+  <b>(%) Music Volume</b>
+<p>
+</div>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="myaccount.html">My Account</a>
+</div>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    $('#myModal').modal('hide');
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    $('#myModal').modal('show');
+  }
+
+  function updateTextInput(val) {
+          document.getElementById('textInput').value=val;
+          player.volume(val / 100)
+        }
+
+        player.volume(1)
+document.getElementById('volu23').value="100"
+  </script>
+
+<div class="modal noselect fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><h2>SnailFM Settings</h2></h4>
+          </div>
+          <div class="modal-body">
+            <h4>Please click what settings you want to change.</h4>
+            <h4>If there is problems with SnailFM, please, press the "Reset" Button.</h4>
+            <hr class="rounded">
+            <button onclick="window.location.reload();" class="w3-btn w3-black">Reload</button>
+            <p></p>
+            <button onclick="openNav();" class="w3-btn w3-black">More Settings</button>
+            <hr class="rounded">
+            <p></p>
+              <a style="font-size:20px;cursor:pointer;color:red" href="reset.html">&#9776; Reset SnailFM</a>
+<h1 class="hiddentext"></h1>
+</h1>
+</div>
 </body>
 </html>
