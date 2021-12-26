@@ -70,9 +70,6 @@ $('#cookie-ok').click(function(event){
 </script>
 <script src="./lib/confetti.min.js"></script>
   <link rel="icon" href="snailfm.png">
-  <script src="./YoutubeJS/video.js"></script>
-  <link href="./YoutubeJS/video-js.css" rel="stylesheet">
-  <script src="./YoutubeJS/Youtube.js"></script>
   <link rel="stylesheet" href="https://cdn.snaildos.com/w3.css">
   <link rel="stylesheet" href="https://cdn.snaildos.com/bootstrap.min.css">
   <script src="https://cdn.snaildos.com/bootstrap.min.js"></script>
@@ -84,7 +81,6 @@ $('#cookie-ok').click(function(event){
   height:100%;
   background-color: rgba(255,255,255,0.5);
   background: transparent;
-  opacity 0.0;
 }
 
 .modal-backdrop {
@@ -94,7 +90,7 @@ z-index: -1; // Hot Fix for broken backdrop
 .content {
   width: 100%;
   height: 100%;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #6b6dff, #3c3d8d, #23a6d5, #002b57);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   box-sizing: border-box;
@@ -108,8 +104,8 @@ z-index: -1; // Hot Fix for broken backdrop
 
 .center { margin: 0 auto; width: 400px; }
 
-h1  {
-  color: black;
+p,h1,h2,h3,h4,h5,h6  {
+  color: white;
 }
 
 @keyframes gradient {
@@ -151,10 +147,6 @@ p,h1,h2,h3,h4,h5,div {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
     .hidden {
-      display: none;
-    }
-
-    .video-stream html5-main-video  {
       display: none;
     }
 
@@ -299,14 +291,11 @@ hr.roundedd {
 <div class="noselect">
   <div id="cookie">
     <div id="cookie-wrapper">
-      <div id="cookie-content" class="h1">Welcome to SnailFM! <p>For more infomation, visit https://snaildos.com/snailfm</p>Hit the let's go button too start using this software! Enjoy!</div>
+      <div id="cookie-content" class="h1">Welcome to the SnailDOS Desktop App! <p>For more infomation, visit https://portal.snaildos.com</p>Hit the let's go button to start using this software! Enjoy!</div>
         <button id="cookie-ok">Let's go!</button>
     </div>
 </div>
-
-  <h1>SnailFM</h1>
-  <h4>Powered by <b>SnailDOS</b> team</h4>
-
+<h2>SnailDOS Desktop</h2>
   <p id="version"></p>
   <div id="notification" class="hidden">
     <p id="message"></p>
@@ -354,74 +343,53 @@ hr.roundedd {
   </script>
 <p>
 </p>
-  <video
-    id="vid1"
-    class="hidden"
-    width="0" height="0"
-    poster="play.png"
-    data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=vce-j1f6CVQ"}] }'
-  >
-  </video>
-  <script>
-var amogus = "https://www.youtube.com/watch?v=vce-j1f6CVQ"
-    videojs("vid1", {
-    controlBar: {
-      fullscreenToggle: false
-    }
-});
-  </script>
-                  <form action="">
-                    <h2 class="noselect">Pause/Play:</h2>
-                    <input type="button" id="4" class="w3-btn w3-black w3-round" value="PLAY"
-                           onclick="toggle2();">
-                    </form>
-
-                    <script>
-                      var player = videojs('vid1');
-                      function toggle2()
-                      {
-                        if(document.getElementById("4").value=="PLAY"){
-                         document.getElementById("4").value="PAUSE";
-                         player.play()}
-
-                        else if(document.getElementById("4").value=="PAUSE"){
-                         document.getElementById("4").value="PLAY";
-                         player.pause()}
-                      }
-                                    </script>
-    <p id='nowPlaying' class="nowplay">Fetching data...</p>
-<script>
-  const Store = require('electron-store');
-  const store = new Store();
-  token = store.get('token')
-  if (store.get('logged_in') === false) {
-   setInterval(()=>{
-    axios.get('http://api.snaildos.com/radio').then((value) => {
-      document.getElementById('nowPlaying').innerText = value.data.playing || 'Nothing'
-    })
-  },7000);
-} else {
-  setInterval(()=>{
-    axios.get('https://api.snaildos.com/streambop', {
-      headers: {
-      Authorization: token
-  }}).then((value) => {
-      document.getElementById('nowPlaying').innerText = value.data.playing || 'Nothing'
-    })
- },4000);
-}
-</script>
-<br>
-<br>
-<br>
-<div class="w3-center streamvolume noselect">
-  <input class="vertical" type="range" name="rangeInput" class="fader" min="0" max="100" oninput="updateTextInput(this.value);" id="volu23"></input>
-  <input type="text" id="textInput" style="font-size:10px;" class="w3-black mixerdialogue w3-round-xlarge" value="Drag Slider!" readonly></input>
-  <br>
-  <b>(%) Music Volume</b>
-<p>
-</div>
-
+      <div class="w3-center">
+        <button class="w3-black w3-roundx w3-button w3-center loginbutton" onclick="ipcRenderer.send('login_show'); ipcRenderer.send('main_hide');">Login</button>
+        <button class="w3-black w3-roundx w3-button w3-center" onclick="window.location.href = 'index.html'">Exit</button>
+        <button class="w3-black w3-roundx w3-button w3-center logoutbutton" onclick="store.set('token', null); store.set('logged_in', false); location.reload();">Logout</button>
+        </div>
+        </body>
+        <script>
+          window.jQuery = window.$ = require('jquery');
+          const Store = require('electron-store');
+          const store = new Store();
+          token = store.get('token')
+          async function name() {
+        await axios.get('https://api.snaildos.com/users/@me', {
+        headers: {
+        Authorization: token
+        }}
+        )
+        .then(function (response) {
+          // handle success
+          document.getElementById("name").innerHTML = ( response.data.user.name );
+          $(".loginbutton").hide();
+          $(".logoutbutton").show();
+        })
+        .catch(function (error) {
+          // handle error
+          alert(error);
+        })
+        .then(function () {
+        });
+        }
+        if (token == undefined) {
+          console.log("Not doing anything since token is undefined.");
+          $(".namerr").hide()
+          $(".logoutbutton").hide()
+        } else {
+          if (store.get('logged_in') == true) {
+          name()
+        } else {
+          $(".namerr").hide()
+          $(".logoutbutton").hide()
+        }
+        }
+        if ((store.get('logged_in') == false)) {
+          $(".logoutbutton").hide()
+        }
+        
+          </script>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="myaccount.html">My Account</a>
@@ -437,14 +405,6 @@ var amogus = "https://www.youtube.com/watch?v=vce-j1f6CVQ"
     document.getElementById("mySidenav").style.width = "0";
     $('#myModal').modal('show');
   }
-
-  function updateTextInput(val) {
-          document.getElementById('textInput').value=val;
-          player.volume(val / 100)
-        }
-
-        player.volume(1)
-document.getElementById('volu23').value="100"
   </script>
 
 <div class="modal noselect fade" id="myModal" role="dialog">
@@ -464,7 +424,7 @@ document.getElementById('volu23').value="100"
             <button onclick="openNav();" class="w3-btn w3-black">More Settings</button>
             <hr class="rounded">
             <p></p>
-              <a style="font-size:20px;cursor:pointer;color:red" href="reset.html">&#9776; Reset SnailFM</a>
+              <a style="font-size:20px;cursor:pointer;color:red" href="reset.html">&#9776; Reset SnailDOS</a>
 <h1 class="hiddentext"></h1>
 </h1>
 </div>
