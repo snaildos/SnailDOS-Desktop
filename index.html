@@ -84,7 +84,7 @@ $('#cookie-ok').click(function(event){
 }
 
 .modal-backdrop {
-z-index: -1; // Hot Fix for broken backdrop
+z-index: -1;
 }
 
 .content {
@@ -344,9 +344,9 @@ hr.roundedd {
 <p>
 </p>
       <div class="w3-center">
-        <button class="w3-black w3-roundx w3-button w3-center loginbutton" onclick="ipcRenderer.send('login_show'); ipcRenderer.send('main_hide');">Login</button>
-        <button class="w3-black w3-roundx w3-button w3-center" onclick="window.location.href = 'index.html'">Exit</button>
-        <button class="w3-black w3-roundx w3-button w3-center logoutbutton" onclick="store.set('token', null); store.set('logged_in', false); location.reload();">Logout</button>
+        <button class="w3-black w3-roundx w3-button w3-center loginbutton w3-round-large" onclick="ipcRenderer.send('login_show'); ipcRenderer.send('main_hide');">Login</button>
+        <button class="w3-black w3-roundx w3-button w3-center w3-round-large" onclick="window.location.href = 'index.html'">Exit</button>
+        <button class="w3-black w3-roundx w3-button w3-center logoutbutton w3-round-large" onclick="store.set('token', null); store.set('logged_in', false); location.reload();">Logout</button>
         </div>
         </body>
         <script>
@@ -413,15 +413,15 @@ hr.roundedd {
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title"><h2>SnailFM Settings</h2></h4>
+            <h4 class="modal-title"><h2 style="color: black;">SnailFM Settings</h2></h4>
           </div>
           <div class="modal-body">
-            <h4>Please click what settings you want to change.</h4>
-            <h4>If there is problems with SnailFM, please, press the "Reset" Button.</h4>
+            <h4 style="color: black;">Please click what settings you want to change.</h4>
+            <h4 style="color: black;">If there is problems with SnailFM, please, press the "Reset" Button.</h4>
             <hr class="rounded">
-            <button onclick="window.location.reload();" class="w3-btn w3-black">Reload</button>
+            <button onclick="window.location.reload();" class="w3-btn w3-black w3-round-large">Reload</button>
             <p></p>
-            <button onclick="openNav();" class="w3-btn w3-black">More Settings</button>
+            <button onclick="openNav();" class="w3-btn w3-black w3-round-large" style="color: black;">More Settings</button>
             <hr class="rounded">
             <p></p>
               <a style="font-size:20px;cursor:pointer;color:red" href="reset.html">&#9776; Reset SnailDOS</a>
