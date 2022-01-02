@@ -1,102 +1,73 @@
 <!DOCTYPE html>
+<meta charset="UTF-8">
 <html>
 <head>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="./titlebar/titlebar.css">
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>SnailPortal Reset</title>
-    <Script>
-        const Store = require('electron-store');
-        function resets()  {
-const security = new Store()
-security.get('pin')
-console.log('auth39')
-if (security.get('pin')) {
-security.set('pin', false);
-alert("You have encryption enabled, You will need be redirected to a decrypt and drop page... Press OK to continue.")
-localStorage.setItem("encdis", true);
-window.location.href = "decandrm.html";
-
-          } else {
-            console.log("going to need to decrypt. :(")
-            start()
-          }
-        }
-    </script>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script>
-            const { ipcRenderer } = require('electron');
-        function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-        function cancel()  {
-            window.location.href = "index.html";
-        }
-
-        async function start()  {
-            document.write("Preparing...")
-            console.log("Confirm we are not encrypted please!")
-            document.write("Loading...")
-            document.write("Loading...")
-            document.write("Loading...")
-            document.write("Loading...")
-            document.write("Loading...")
-            document.write("Loading...")
-            document.write("Loading...")
-            document.write("Loading...")
-            document.write("Loading...")
-            document.write("Loading...")
-            document.write("Loading...")
-            document.write("Loading...")
-            document.write("Loading...")
-            await sleep(2000);
-            document.open()
-            document.write("Erasing setup data...")
-            localStorage.removeItem("setup");
-            localStorage.removeItem("greeter");
-            const Store = require('electron-store');
-            const security = new Store();
-            security.clear()
-            await sleep(2000);
-            document.open()
-            document.write("Erasing login info...")
-            localStorage.removeItem("name");
-            localStorage.removeItem("firstime");
-            await sleep(2000);
-            document.open()
-            document.write("Reset Sucess... ")
-            document.write("Please wait...")
-            await sleep(2000);
-            ipcRenderer.send('relaunch');
-        }
-    </script>
+	<script>
+		    window.jQuery = window.$ = require('jquery');
+	</script>
+<link rel="stylesheet" href="https://cdn.snaildos.com/bootstrap.min.css">
+<script src="https://cdn.snaildos.com/jquery.min.js"></script>
+<script src="https://cdn.snaildos.com/bootstrap.min.js"></script>
+	<title>Resetting SnailDOS...</title>
+	<style type="text/css">
+		.bs-example{
+			margin: 20px;
+		}
+		</style>
     <style>
-    h1,h2,h3,h4,p,div {
-        color: white;
-    }
-    * {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
     </style>
 </head>
 <body>
-    <header data-for-os="windows" id="titlebar" class="titlebar">
-        <div id="window-controls">
-          <div onclick="ipcRenderer.send('minimize')" class="button" id="min-button"><img class="icon" srcset="./icons/titlebar/min-w-10.png 1x, ./icons/titlebar/min-w-12.png 1.25x, ./icons/titlebar/min-w-15.png 1.5x, ./icons/titlebar/min-w-15.png 1.75x, ./icons/titlebar/min-w-20.png 2x, ./icons/titlebar/min-w-20.png 2.25x, ./icons/titlebar/min-w-24.png 2.5x, ./icons/titlebar/min-w-30.png 3x, ./icons/titlebar/min-w-30.png 3.5x" draggable="false" /></div>
-          <div onclick="ipcRenderer.send('close')" class="button" id="close-button"><img class="icon" srcset="./icons/titlebar/close-w-10.png 1x, ./icons/titlebar/close-w-12.png 1.25x, ./icons/titlebar/close-w-15.png 1.5x, ./icons/titlebar/close-w-15.png 1.75x, ./icons/titlebar/close-w-20.png 2x, ./icons/titlebar/close-w-20.png 2.25x, ./icons/titlebar/close-w-24.png 2.5x, ./icons/titlebar/close-w-30.png 3x, ./icons/titlebar/close-w-30.png 3.5x" draggable="false" /></div>
-        </div>
-      </header>
-    <center>
-    <h1 class="w3-center noselect">Do you want to reset SnailPortal?</h1>
-    <p></p>
-    <button class="w3-button w3-white w3-center w3-round-xlarge" onclick="resets();">Continue</button>
-    <p></p>
-    <button class="w3-button w3-white w3-center w3-round-xlarge" onclick="cancel();">Cancel</button>
-</center>
+	<script>
+		const Store = require('electron-store');
+  		const store = new Store();
+		console.log("Let's clear localstorage first...")
+		localStorage.removeItem('cookie-consent', 'true');
+		console.log("Just wait a bit...")
+		config.set('logged_in', false)
+		config.set('token', "null")
+		localStorage.setItem('version', '0.0.0.0');
+		// import rest of stuff here
+	</script>
+	<div class="bs-example">
+		<h2>Resetting Desktop...</h2>
+		<div class="progress">
+			<div class="progress-bar" id="bar">
+				<span class="sr-only">src</span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var i = 0;
+			var progressBar = $("#bar");
+			function countNumbers(){
+				if(i < 100){
+					i = i + 10;
+					progressBar.css("width", i + "%");
+				}
+				if(i > 90){
+					window.location.href = "restart.html";
+				}
+				// Wait for sometime before running this script again
+				setTimeout("countNumbers()", 1000);
+			}
+			countNumbers();
+		</script>
+	</div>
+</body>
 </html>

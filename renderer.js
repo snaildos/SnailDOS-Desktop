@@ -1,2 +1,1 @@
-const { ipcRenderer } = require('electron')
-console.log('Render loaded!')
+console.log("Renderer.JS is initialized!")
