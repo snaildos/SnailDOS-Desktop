@@ -15,15 +15,6 @@ store.set('createonlogin', false)
 const { Notification } = require("electron");
 electron.app.commandLine.appendSwitch("enable-transparent-visuals");
 
-// wait function
-function wait(ms) {
-  var d = new Date();
-  var d2 = null;
-  do {
-    d2 = new Date();
-  } while (d2 - d < ms);
-}
-
 // Start the libaries
 require("./lib/rpc.js");
 console.log("RPC lib init.");

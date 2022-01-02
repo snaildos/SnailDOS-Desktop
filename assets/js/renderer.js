@@ -1,1 +1,1 @@
-console.log("Renderer.JS is initialized!")
+console.log("Renderer initialized!")

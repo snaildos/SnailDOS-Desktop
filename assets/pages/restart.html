@@ -1,7 +1,7 @@
 <html>
     <head>
         <script>
-                const { ipcRenderer } = require('electron');
+            const { ipcRenderer } = require('electron');
             function relaunch(){
                 ipcRenderer.send('relaunch');
             }
@@ -9,8 +9,8 @@
     <title>Reset sucess</title>
 </head>
 <body>
-    <h1> Reset Sucess </h1>
-    <h2> Please hit the exit button to close the software, then, please restart the software after this.</h2>
-    <button id="exit" onclick="relaunch()">Relaunch</button>
+<h1>Reset Sucess</h1>
+<h2>Please hit the exit button to close the software, then, please restart the software after this.</h2>
+<button id="exit" onclick="relaunch()">Relaunch</button>
 </body>
 </html>
