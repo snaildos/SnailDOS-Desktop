@@ -130,7 +130,7 @@ function createWindow() {
           title: "SnailDOS-Desktop",
           body: "No valid network connection! Please reconnect!",
         };        
-      mainWindow.loadFile("nonet.html");
+      mainWindow.loadFile("./assets/pages/nonet.html");
       new Notification(notification3).show();
       }
     })();
