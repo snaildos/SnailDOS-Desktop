@@ -69,7 +69,7 @@ const createLoadingScreen = () => {
     })
   );
   loadingScreen.setResizable(false);
-  loadingScreen.loadFile("splash.html");
+  loadingScreen.loadFile("./assets/pages/splash.html");
   loadingScreen.on("closed", () => (loadingScreen = null));
   loadingScreen.webContents.on("did-finish-load", () => {
     loadingScreen.show();
