@@ -46,8 +46,6 @@
     "jquery": "3.6.0",
     "universal-analytics": "0.4.23",
     "utf-8-validate": "^5.0.4",
-    "uuidv4": "6.2.12",
-    "say": "0.16.0",
-    "winbox": "0.2.1"
+    "uuidv4": "6.2.12"
   }
 }
