@@ -43,7 +43,6 @@ body {
 		console.log("Just wait a bit...")
 		console.log("Update true. Setting now.")
 		localStorage.setItem('version', '1.0.1');
-		// import rest of stuff here
 		store.set('setup', true)
 		store.set('logged_in', false)
 		config.set('token', "null")
@@ -64,9 +63,8 @@ body {
 					progressBar.css("width", i + "%");
 				}
 				if(i > 90){
-					window.location.href = "index.html";
+					window.location.href = "../../index.html";
 				}
-				// Wait for sometime before running this script again
 				setTimeout("countNumbers()", 1000);
 			}
 			countNumbers();

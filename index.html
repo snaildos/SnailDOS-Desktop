@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <link rel="stylesheet" href="./titlebar.css">
+  <link rel="stylesheet" href="./assets/css/titlebar.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
     </style>
@@ -29,7 +29,7 @@ var htmlElement = document.documentElement;
 </script>
     <script>
     // Needs window render
-    require('./renderer.js')
+    require('./assets/js/renderer.js')
   </script>
 <script>
   // update check
@@ -40,7 +40,7 @@ var version = localStorage.getItem('version');
 
 if(version != '1.0.1'){
   console.log('Latest update is not ready.')
-  window.location.href = "update.html";
+  window.location.href = "./assets/pages/update.html";
 }
 
 });
