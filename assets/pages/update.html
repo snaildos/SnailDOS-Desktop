@@ -2,9 +2,9 @@
 <meta charset="UTF-8">
 <html>
 <head>
-	<script>
-		    window.jQuery = window.$ = require('jquery');
-	</script>
+<script>
+window.jQuery = window.$ = require('jquery');
+</script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -43,7 +43,6 @@ body {
 		console.log("Just wait a bit...")
 		console.log("Update true. Setting now.")
 		localStorage.setItem('version', '1.0.1');
-		// import rest of stuff here
 		store.set('setup', true)
 		store.set('logged_in', false)
 		config.set('token', "null")
@@ -64,9 +63,8 @@ body {
 					progressBar.css("width", i + "%");
 				}
 				if(i > 90){
-					window.location.href = "index.html";
+					window.location.href = "../../index.html";
 				}
-				// Wait for sometime before running this script again
 				setTimeout("countNumbers()", 1000);
 			}
 			countNumbers();

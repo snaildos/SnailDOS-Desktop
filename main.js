@@ -15,15 +15,6 @@ store.set('createonlogin', false)
 const { Notification } = require("electron");
 electron.app.commandLine.appendSwitch("enable-transparent-visuals");
 
-// wait function
-function wait(ms) {
-  var d = new Date();
-  var d2 = null;
-  do {
-    d2 = new Date();
-  } while (d2 - d < ms);
-}
-
 // Start the libaries
 require("./lib/rpc.js");
 console.log("RPC lib init.");
@@ -69,7 +60,7 @@ const createLoadingScreen = () => {
     })
   );
   loadingScreen.setResizable(false);
-  loadingScreen.loadFile("splash.html");
+  loadingScreen.loadFile("./assets/pages/splash.html");
   loadingScreen.on("closed", () => (loadingScreen = null));
   loadingScreen.webContents.on("did-finish-load", () => {
     loadingScreen.show();
@@ -130,7 +121,7 @@ function createWindow() {
           title: "SnailDOS-Desktop",
           body: "No valid network connection! Please reconnect!",
         };        
-      mainWindow.loadFile("nonet.html");
+      mainWindow.loadFile("./assets/pages/nonet.html");
       new Notification(notification3).show();
       }
     })();
