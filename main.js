@@ -103,7 +103,7 @@ function createWindow() {
   mainWindow.webContents.on("did-finish-load", () => {
     if (loadingScreen) {
       loadingScreen.close();
-      trackEvent("app.started", "Desktop has just loaded up!");
+      trackEvent("app.started", "SnailDOS Desktop has just loaded up!");
     }
     var isDev = require("isdev");
 
