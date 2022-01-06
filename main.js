@@ -99,7 +99,7 @@ function createWindow() {
   mainWindow.on("maximize", () => mainWindow.unmaximize());
   ipcMain.on("main_show", () => mainWindow.show());
   ipcMain.on('main_hide', () => {mainWindow.hide();})
-  ipcMain.on("load_acc", () => mainWindow.loadFile('myaccount.html'))
+  ipcMain.on("load_acc", () => mainWindow.loadFile('index.html'))
   mainWindow.webContents.on("did-finish-load", () => {
     if (loadingScreen) {
       loadingScreen.close();
@@ -238,7 +238,7 @@ app.whenReady().then(() => {
   
   app.setAsDefaultProtocolClient("snaildos");
   protocol.registerHttpProtocol('snaildos', (req, cb) => {
-    const url = req.url.substr(22)
+    const url = req.url.substr(23)
       console.log("Logging in: "+url);
       console.log("Token data: "+url)
       store.set('token', url);
@@ -252,7 +252,7 @@ app.whenReady().then(() => {
       }
   })
   app.on("open-url", (event, url) => {
-    const url2 = req.url.substr(22)
+    const url2 = req.url.substr(23)
     console.log("Logging in: "+url2);
     console.log("Token data: "+url2)
     store.set('token', url2);

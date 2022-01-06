@@ -26,20 +26,14 @@ var htmlElement = document.documentElement;
 window.jQuery = window.$ = require('jquery');
 const axios = require('axios')
 // Needs window render
-require('./assets/js/renderer.js')
+const render = require('./assets/js/renderer.js')
 // update check
-(function($){
-$(document).ready(function() {
+var version2 = localStorage.getItem('version');
 
-var version = localStorage.getItem('version');
-
-if(version != '1.0.1'){
+if(version2 != '1.0.1'){
   console.log('Latest update is not ready.')
   window.location.href = "./assets/pages/update.html";
 }
-
-});
-})(jQuery);
 
 // oobe
 (function($){
@@ -78,6 +72,33 @@ $('#cookie-ok').click(function(event){
 
 .modal-backdrop {
 z-index: -1;
+}
+
+.menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.menu a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  z-index: -1 !important;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.menu a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.main {
+  padding: 16px;
+  margin-bottom: 30px;
 }
 
 .content {
@@ -255,6 +276,14 @@ hr.roundedd {
   background: none;
   color: rgb(255, 0, 212);
 }
+
+a {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  z-index: -1;
+}
   </style>
 </head>
   <header data-for-os="windows" id="titlebar" class="titlebar">
@@ -264,6 +293,11 @@ hr.roundedd {
     </div>
   </header>
 <body>
+  <div class="menu">
+    <a href="https://google.com" class="active">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+  </div>
   <div class="content">
   <button type="button" class="settings w3-button w3-round-xlarge" data-toggle="modal" data-target="#myModal">Settings</button>
 <div class="noselect">
@@ -322,8 +356,9 @@ hr.roundedd {
 <p>
 </p>
       <div class="w3-center">
+        <h3 class="name">Greetings, <p id=name></p></h3>
         <button class="w3-black w3-roundx w3-button w3-center loginbutton w3-round-large" onclick="ipcRenderer.send('login_show'); ipcRenderer.send('main_hide');">Login</button>
-        <button class="w3-black w3-roundx w3-button w3-center w3-round-large" onclick="window.location.href = 'index.html'">Exit</button>
+        <button class="w3-black w3-roundx w3-button w3-center w3-round-large" onclick="exit()">Exit</button>
         <button class="w3-black w3-roundx w3-button w3-center logoutbutton w3-round-large" onclick="store.set('token', null); store.set('logged_in', false); location.reload();">Logout</button>
         </div>
         </body>
@@ -343,6 +378,7 @@ hr.roundedd {
           document.getElementById("name").innerHTML = ( response.data.user.name );
           $(".loginbutton").hide();
           $(".logoutbutton").show();
+          $(".menu").show()
         })
         .catch(function (error) {
           // handle error
@@ -355,16 +391,20 @@ hr.roundedd {
           console.log("Not doing anything since token is undefined.");
           $(".namerr").hide()
           $(".logoutbutton").hide()
+          $(".menu").hide()
+          $(".name").hide()
         } else {
           if (store.get('logged_in') == true) {
           name()
         } else {
           $(".namerr").hide()
           $(".logoutbutton").hide()
+          $(".name").hide()
         }
         }
         if ((store.get('logged_in') == false)) {
           $(".logoutbutton").hide()
+          $(".name").hide()
         }
         
           </script>
