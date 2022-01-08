@@ -74,35 +74,13 @@ $('#cookie-ok').click(function(event){
 z-index: -1;
 }
 
-.menu {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-.menu a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  z-index: -1 !important;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.menu a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
 .main {
   padding: 16px;
   margin-bottom: 30px;
 }
 
 .content {
-  width: 100%;
+  width: 100% !important;
   height: 100%;
   background: linear-gradient(-45deg, #6b6dff, #3c3d8d, #23a6d5, #002b57);
   background-size: 400% 400%;
@@ -277,15 +255,52 @@ hr.roundedd {
   color: rgb(255, 0, 212);
 }
 
-a {
-  -webkit-user-select: text !important;
-  -moz-user-select: text !important;
-  -ms-user-select: text !important;
-  user-select: text !important;
-  z-index: -1;
+.nav {
+    position: fixed;
+    bottom: 0;
+    width: 100% !important;
+    height: 55px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #e0e0e0;
+    overflow-x: auto;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
 }
+
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: sans-serif;
+    text-decoration:none !important;
+    font-size: 13px;
+    color: #444444;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.nav__link:hover {
+    background-color: #eeeeee;
+}
+
+.nav__link--active {
+    color: #009578;
+}
+
+.nav__icon {
+    font-size: 18px;
+}
+
   </style>
 </head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <header data-for-os="windows" id="titlebar" class="titlebar">
     <div id="window-controls">
       <div onclick="ipcRenderer.send('minimize')" class="button" id="min-button"><img class="icon" srcset="./icons/titlebar/min-w-10.png 1x, ./icons/titlebar/min-w-12.png 1.25x, ./icons/titlebar/min-w-15.png 1.5x, ./icons/titlebar/min-w-15.png 1.75x, ./icons/titlebar/min-w-20.png 2x, ./icons/titlebar/min-w-20.png 2.25x, ./icons/titlebar/min-w-24.png 2.5x, ./icons/titlebar/min-w-30.png 3x, ./icons/titlebar/min-w-30.png 3.5x" draggable="false" /></div>
@@ -293,12 +308,29 @@ a {
     </div>
   </header>
 <body>
-  <div class="menu">
-    <a href="https://google.com" class="active">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-  </div>
   <div class="content">
+    <nav class="nav">
+      <a href="https://snaildos.com" class="nav__link">
+        <i class="material-icons nav__icon">dashboard</i>
+        <span class="nav__text">Dashboard</span>
+      </a>
+      <a href="#" class="nav__link nav__link--active">
+        <i class="material-icons nav__icon">person</i>
+        <span class="nav__text">Profile</span>
+      </a>
+      <a href="#" class="nav__link">
+        <i class="material-icons nav__icon">devices</i>
+        <span class="nav__text">Devices</span>
+      </a>
+      <a href="#" class="nav__link">
+        <i class="material-icons nav__icon">lock</i>
+        <span class="nav__text">Privacy</span>
+      </a>
+      <a href="#" class="nav__link">
+        <i class="material-icons nav__icon">settings</i>
+        <span class="nav__text">Settings</span>
+      </a>
+    </nav>
   <button type="button" class="settings w3-button w3-round-xlarge" data-toggle="modal" data-target="#myModal">Settings</button>
 <div class="noselect">
   <div id="cookie">
