@@ -259,8 +259,8 @@ hr.roundedd {
 .nav {
     position: fixed;
     bottom: 0;
-    width: 100% !important;
-    max-width: 100%;
+    width: 100vw !important;
+    left: 0;
     height: 55px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
@@ -268,6 +268,7 @@ hr.roundedd {
     justify-content: space-around;
     border-top: 1px solid #e0e0e0;
     overflow-x: auto;
+    margin-left: 0px;
     -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
 }
 
@@ -312,11 +313,11 @@ hr.roundedd {
 <body>
   <div class="content">
     <nav class="nav">
-      <a href="https://snaildos.com" class="nav__link">
+      <a href="#" class="nav__link nav__link--active">
         <i class="material-icons nav__icon">dashboard</i>
         <span class="nav__text">Dashboard</span>
       </a>
-      <a href="#" class="nav__link nav__link--active">
+      <a href="#" class="nav__link">
         <i class="material-icons nav__icon">person</i>
         <span class="nav__text">Profile</span>
       </a>
