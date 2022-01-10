@@ -413,7 +413,7 @@ hr.roundedd {
           document.getElementById("name").innerHTML = ( response.data.user.name );
           $(".loginbutton").hide();
           $(".logoutbutton").show();
-          $(".menu").show()
+          $(".nav").show()
         })
         .catch(function (error) {
           // handle error
@@ -426,13 +426,14 @@ hr.roundedd {
           console.log("Not doing anything since token is undefined.");
           $(".namerr").hide()
           $(".logoutbutton").hide()
-          $(".menu").hide()
+          $(".nav").hide()
           $(".name").hide()
         } else {
           if (store.get('logged_in') == true) {
           name()
         } else {
           $(".namerr").hide()
+          $(".nav").hide()
           $(".logoutbutton").hide()
           $(".name").hide()
         }

@@ -12,7 +12,7 @@ html.windows .settings {top: 50px}
   left: 0px;
   -webkit-app-region: drag;
   color: #FFF;
-  z-index: 1;
+  z-index: 2;
 }
 
 #window-title span {
