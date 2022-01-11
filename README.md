@@ -1,4 +1,4 @@
-# SnailFM
+# SnailDOS Desktop
 [![Snap](https://snapcraft.io/snaildos/badge.svg)](https://snapcraft.io/snaildos)
 SnailDOS-Desktop is a desktop application for SnailDOS.
 Manage all SnailDOS services in one place!
