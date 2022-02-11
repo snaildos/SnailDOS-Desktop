@@ -18,6 +18,9 @@
 
 ### Miscellaneous
 
+-  Merge branch &#x27;main&#x27; of https://github.com/snaildos/SnailDOS-Desktop [[52170ef](https://github.com/snaildos/SnailDOS-Desktop/commit/52170ef73dadf7983028c887bf465adbabb29b9c)]
+-  Add logo [[7335074](https://github.com/snaildos/SnailDOS-Desktop/commit/73350744070333f4ecbb2f033e5f39c33ffba535)]
+-  Update CHANGELOG.md [[4d0b8c8](https://github.com/snaildos/SnailDOS-Desktop/commit/4d0b8c8504ff199207c7a1eed96caf51a09dd3c0)]
 -  Update CHANGELOG.md [[4d88eae](https://github.com/snaildos/SnailDOS-Desktop/commit/4d88eae8463c5d6f2d6e69359c22ae0ef19048fb)]
 -  Update index.html [[6bd79d1](https://github.com/snaildos/SnailDOS-Desktop/commit/6bd79d1159fd75a9219a96f5a73c75becfd7fda7)]
 -  Merge pull request [#107](https://github.com/snaildos/SnailDOS-Desktop/issues/107) from snaildos/dependabot/npm_and_yarn/electron-16.0.7 [[1af8993](https://github.com/snaildos/SnailDOS-Desktop/commit/1af8993b1d46cdbd98e0416a142fd510b9c4f266)]
