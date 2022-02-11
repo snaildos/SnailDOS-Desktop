@@ -1,10 +1,11 @@
 # Changelog
 
 <a name="1.0.1"></a>
-## 1.0.1 (2022-01-13)
+## 1.0.1 (2022-02-11)
 
 ### Added
 
+- ✨ Prevent second instance [[54c898d](https://github.com/snaildos/SnailDOS-Desktop/commit/54c898d52b0d1268eda22a6acd98e7e569ef353a)]
 - ✨ Remake menu [[c8f391c](https://github.com/snaildos/SnailDOS-Desktop/commit/c8f391c9efcc192db6ac2f2754ff8160b651e688)]
 - ✨ 🌈 Tons of optimization [[907ce93](https://github.com/snaildos/SnailDOS-Desktop/commit/907ce935590ee28cd489bc27cbc96d482b3c9e3d)]
 - ✨ Tons of optimization [[1c710a1](https://github.com/snaildos/SnailDOS-Desktop/commit/1c710a1932c4b83b33fdf9ddd204f263904d782c)]
@@ -17,6 +18,7 @@
 
 ### Miscellaneous
 
+-  Update CHANGELOG.md [[4d88eae](https://github.com/snaildos/SnailDOS-Desktop/commit/4d88eae8463c5d6f2d6e69359c22ae0ef19048fb)]
 -  Update index.html [[6bd79d1](https://github.com/snaildos/SnailDOS-Desktop/commit/6bd79d1159fd75a9219a96f5a73c75becfd7fda7)]
 -  Merge pull request [#107](https://github.com/snaildos/SnailDOS-Desktop/issues/107) from snaildos/dependabot/npm_and_yarn/electron-16.0.7 [[1af8993](https://github.com/snaildos/SnailDOS-Desktop/commit/1af8993b1d46cdbd98e0416a142fd510b9c4f266)]
 -  Bump electron from 16.0.6 to 16.0.7 [[7a54192](https://github.com/snaildos/SnailDOS-Desktop/commit/7a54192d5ba4fcb8c7255ef1e8b5fb32c5742ee0)]
