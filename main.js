@@ -1,6 +1,6 @@
 const { autoUpdater } = require("electron-updater");
 const { SSL_OP_EPHEMERAL_RSA } = require("constants");
-const { app, BrowserWindow, ipcMain, protocol, ipcRenderer } = require("electron");
+const { app, BrowserWindow, ipcMain, protocol, ipcRenderer, dialog } = require("electron");
 const { watchFile } = require("fs");
 const { trackEvent } = require("./lib/analytics.js");
 const glasstron = require("glasstron");
@@ -268,17 +268,28 @@ app.whenReady().then(() => {
   });
 });
 
-
-app.on("ready", () => {
-  createLoadingScreen();
-  console.log("Send check for updates signal...");
-  console.log("Alright, lets go!");
-  setTimeout(() => {
-    createloginWindow()
-    ipcMain.emit('token_verify');
-  }, 3000);
-});
-
+let myWindow = null
+    
+const gotTheLock = app.requestSingleInstanceLock()
+    
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+  app.quit()
+  })
+    
+  app.on("ready", () => {
+    createLoadingScreen();
+    console.log("Send check for updates signal...");
+    console.log("Alright, lets go!");
+    setTimeout(() => {
+      createloginWindow()
+      ipcMain.emit('token_verify');
+    }, 3000);
+  });
+  
+}
 app.on("window-all-closed", function () {
   if (process.platform !== "darwin") {
     app.quit();
