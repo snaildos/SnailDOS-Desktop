@@ -81,7 +81,9 @@ z-index: -1;
 
 .content {
   width: 100% !important;
-  height: 100%;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
   max-width: 100%;
   background: linear-gradient(-45deg, #6b6dff, #3c3d8d, #23a6d5, #002b57);
   background-size: 400% 400%;
@@ -127,6 +129,15 @@ p,h1,h2,h3,h4,h5,div {
     100% {
         background-position: 0% 50%;
     }
+}
+
+.page {
+         height: 90% !important;
+        width: 100% !important;
+        margin-top: 30px !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
 }
 
     #notification {
@@ -197,6 +208,15 @@ hr.roundedd {
   padding-top: 60px;
   transition: 0.5s;
 }
+
+#webview {
+        height: 90% !important;
+        width: 100% !important;
+        margin-top: 30px !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+      }
 
 .sidenav a {
   padding: 8px 8px 8px 32px;
@@ -300,8 +320,81 @@ hr.roundedd {
 .nav__icon {
     font-size: 18px;
 }
-
   </style>
+          <script>
+            // login handler
+            window.jQuery = window.$ = require('jquery');
+            const Store = require('electron-store');
+            const store = new Store();
+            token = store.get('token')
+            async function name() {
+          await axios.get('https://api.snaildos.com/users/@me', {
+          headers: {
+          Authorization: token
+          }}
+          )
+          .then(function (response) {
+            // handle success
+            document.getElementById("name").innerHTML = ( response.data.user.name );
+            $(".loginbutton").hide();
+            $(".logoutbutton").show();
+            $(".nav").show()
+          })
+          .catch(function (error) {
+            // handle error
+            alert(error);
+          })
+          .then(function () {
+          });
+          }
+          if (token == undefined) {
+            console.log("Not doing anything since token is undefined.");
+            $(".namerr").hide()
+            $(".logoutbutton").hide()
+            $(".nav").hide()
+            $(".name").hide()
+          } else {
+            if (store.get('logged_in') == true) {
+            name()
+          } else {
+            $(".namerr").hide()
+            $(".nav").hide()
+            $(".logoutbutton").hide()
+            $(".name").hide()
+          }
+          }
+          if ((store.get('logged_in') == false)) {
+            $(".logoutbutton").hide()
+            $(".name").hide()
+          }
+          
+            </script>
+  <script>
+    // onload hide all pages
+    $(document).ready(function(){
+      $(".pages").hide();
+      $("#create").hide();
+      $("#profile").hide();
+    });
+
+    function mainpage() {
+      $("#create").hide();
+      $("#profile").hide();
+      $("#mainpage").show();
+    }
+
+    function creatable() {
+      $("#mainpage").hide();
+      $("#profile").hide();
+      $("#create").show()
+    }
+
+    function profile() {
+      $("#mainpage").hide();
+      $("#create").hide()
+      $("#profile").show();
+    }
+  </script>
 </head>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <header data-for-os="windows" id="titlebar" class="titlebar">
@@ -313,15 +406,15 @@ hr.roundedd {
 <body>
   <div class="content">
     <nav class="nav">
-      <a href="#" class="nav__link nav__link--active">
+      <a onclick="mainpage()" class="nav__link nav__link">
         <i class="material-icons nav__icon">dashboard</i>
         <span class="nav__text">Dashboard</span>
       </a>
-      <a href="./assets/pages/profile.html" class="nav__link">
+      <a onclick="profile()" class="nav__link">
         <i class="material-icons nav__icon">person</i>
         <span class="nav__text">Profile</span>
       </a>
-      <a href="./assets/pages/create.html" class="nav__link">
+      <a onclick="creatable()" class="nav__link">
         <i class="material-icons nav__icon">devices</i>
         <span class="nav__text">Creatable Host</span>
       </a>
@@ -341,8 +434,6 @@ hr.roundedd {
         <button id="cookie-ok">Let's go!</button>
     </div>
 </div>
-<h2>SnailDOS Desktop</h2>
-  <p id="version"></p>
   <div id="notification" class="hidden">
     <p id="message"></p>
     <button id="close-button" onClick="closeNotification()">
@@ -389,60 +480,42 @@ hr.roundedd {
   </script>
 <p>
 </p>
+
+<div id="mainpage">
+  <h2>SnailDOS Desktop</h2>
+  <p id="version"></p>
       <div class="w3-center">
         <h3 class="name">Greetings, <p id=name></p></h3>
         <button class="w3-black w3-roundx w3-button w3-center loginbutton w3-round-large" onclick="ipcRenderer.send('login_show'); ipcRenderer.send('main_hide');">Login</button>
         <button class="w3-black w3-roundx w3-button w3-center w3-round-large" onclick="exit()">Exit</button>
         <button class="w3-black w3-roundx w3-button w3-center logoutbutton w3-round-large" onclick="store.set('token', null); store.set('logged_in', false); location.reload();">Logout</button>
         </div>
-        </body>
-        <script>
-          window.jQuery = window.$ = require('jquery');
-          const Store = require('electron-store');
-          const store = new Store();
-          token = store.get('token')
-          async function name() {
-        await axios.get('https://api.snaildos.com/users/@me', {
-        headers: {
-        Authorization: token
-        }}
-        )
-        .then(function (response) {
-          // handle success
-          document.getElementById("name").innerHTML = ( response.data.user.name );
-          $(".loginbutton").hide();
-          $(".logoutbutton").show();
-          $(".nav").show()
-        })
-        .catch(function (error) {
-          // handle error
-          alert(error);
-        })
-        .then(function () {
-        });
-        }
-        if (token == undefined) {
-          console.log("Not doing anything since token is undefined.");
-          $(".namerr").hide()
-          $(".logoutbutton").hide()
-          $(".nav").hide()
-          $(".name").hide()
-        } else {
-          if (store.get('logged_in') == true) {
-          name()
-        } else {
-          $(".namerr").hide()
-          $(".nav").hide()
-          $(".logoutbutton").hide()
-          $(".name").hide()
-        }
-        }
-        if ((store.get('logged_in') == false)) {
-          $(".logoutbutton").hide()
-          $(".name").hide()
-        }
-        
-          </script>
+
+
+
+</div>
+
+<div id="create" class="page">
+  <webview
+  id="webview"
+  autosize="on"
+  class="webiew"
+  src="https://server.snaildos.com"
+  data-home="https://server.snaildos.com"
+></webview>
+
+</div>
+
+<div id="profile" class="page">
+  <webview
+  id="webview"
+  autosize="on"
+  class="webiew"
+  src="https://account.snaildos.com"
+  data-home="https://account.snaildos.com"
+></webview>
+</div>
+
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="myaccount.html">idk lol</a>
@@ -480,6 +553,7 @@ hr.roundedd {
               <a style="font-size:20px;cursor:pointer;color:red" href="./assets/pages/reset.html">&#9776; Reset SnailDOS</a>
 <h1 class="hiddentext"></h1>
 </h1>
+</div>
 </div>
 </body>
 </html>
