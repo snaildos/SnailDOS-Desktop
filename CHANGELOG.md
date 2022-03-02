@@ -1,5 +1,45 @@
 # Changelog
 
+<a name="next"></a>
+## next
+
+### Miscellaneous
+
+-  Remove placeholder for production [[e47476e](https://github.com/snaildos/SnailDOS-Desktop/commit/e47476e56d6128dd823a402654863d2c4896b3b0)]
+-  Increase window size [[835f4d3](https://github.com/snaildos/SnailDOS-Desktop/commit/835f4d32659118d17ddbfcef5b1357086d798067)]
+-  Merge pull request [#119](https://github.com/snaildos/SnailDOS-Desktop/issues/119) from snaildos/dependabot/npm_and_yarn/axios-0.26.0 [[b10f0ce](https://github.com/snaildos/SnailDOS-Desktop/commit/b10f0ceffb14c5c3538123b26fa4f54df3487f02)]
+-  Merge pull request [#120](https://github.com/snaildos/SnailDOS-Desktop/issues/120) from snaildos/dependabot/npm_and_yarn/electron-17.0.1 [[6d0ea9a](https://github.com/snaildos/SnailDOS-Desktop/commit/6d0ea9a20e89102adf3382d20cdcac531b973df2)]
+-  Merge pull request [#121](https://github.com/snaildos/SnailDOS-Desktop/issues/121) from snaildos/renovate/electron-17.x [[ce72eca](https://github.com/snaildos/SnailDOS-Desktop/commit/ce72eca06b24a6f8759a156ccc1c74583ebb76cf)]
+-  Merge pull request [#122](https://github.com/snaildos/SnailDOS-Desktop/issues/122) from snaildos/renovate/axios-0.x [[16b173c](https://github.com/snaildos/SnailDOS-Desktop/commit/16b173c73775e9874b6bd03cfd11c1a5bc79d6a7)]
+-  Update GUI &amp; Pages [[28c62c7](https://github.com/snaildos/SnailDOS-Desktop/commit/28c62c70ceaf7eb2a485fe1a44a4399fb9a9ebc2)]
+-  Update dependency axios to v0.26.0 [[c1e5330](https://github.com/snaildos/SnailDOS-Desktop/commit/c1e53303dfb62e3fa06ba6e5acb8d83e5607649d)]
+-  Update dependency electron to v17.0.1 [[5481e3c](https://github.com/snaildos/SnailDOS-Desktop/commit/5481e3c3cd519ff912755cecfc2bc97ecb898b89)]
+-  Bump electron from 17.0.0 to 17.0.1 [[45184ea](https://github.com/snaildos/SnailDOS-Desktop/commit/45184ea1025f36dee803e6393dab8504ae5f6c29)]
+-  Bump axios from 0.25.0 to 0.26.0 [[acf5a72](https://github.com/snaildos/SnailDOS-Desktop/commit/acf5a72e4f8e279de72aaf328d70a96f182f5cbc)]
+-  Merge pull request [#117](https://github.com/snaildos/SnailDOS-Desktop/issues/117) from snaildos/renovate/electron-17.x [[ccd8aec](https://github.com/snaildos/SnailDOS-Desktop/commit/ccd8aec225f201c8ebf8339c7071176f1b6b30c9)]
+-  Merge pull request [#115](https://github.com/snaildos/SnailDOS-Desktop/issues/115) from snaildos/renovate/electron-builder-22.x [[3b00227](https://github.com/snaildos/SnailDOS-Desktop/commit/3b002276bbc3433223cc575c7706770b02077f9a)]
+-  Merge pull request [#116](https://github.com/snaildos/SnailDOS-Desktop/issues/116) from snaildos/renovate/electron-updater-4.x [[039fa22](https://github.com/snaildos/SnailDOS-Desktop/commit/039fa22d3558c90bcd4d52b1bedcdeeb8f216d60)]
+-  Merge pull request [#109](https://github.com/snaildos/SnailDOS-Desktop/issues/109) from snaildos/renovate/axios-0.x [[2fc0ecb](https://github.com/snaildos/SnailDOS-Desktop/commit/2fc0ecb91eef6bbcbc327577a9fa5d8b37004479)]
+-  Merge pull request [#118](https://github.com/snaildos/SnailDOS-Desktop/issues/118) from snaildos/imgbot [[b105006](https://github.com/snaildos/SnailDOS-Desktop/commit/b1050067000de89841b5df17b359d0e9f217866d)]
+-  Merge pull request [#114](https://github.com/snaildos/SnailDOS-Desktop/issues/114) from snaildos/renovate/electron-16.x [[e010059](https://github.com/snaildos/SnailDOS-Desktop/commit/e01005912935d1cebbe37560eab6579ab2b121fe)]
+-  Update dependency electron to v17 [[b805352](https://github.com/snaildos/SnailDOS-Desktop/commit/b80535249403c945a146a6ff1a99400247ca1a2a)]
+-  Update dependency electron-builder to v22.14.13 [[d776a4c](https://github.com/snaildos/SnailDOS-Desktop/commit/d776a4c0f9d4afa76958ca907199b872464b0519)]
+-  [ImgBot] Optimize images [[226832b](https://github.com/snaildos/SnailDOS-Desktop/commit/226832bca879fc6d116d5cb34cf6c3b4221bd40a)]
+-  Update dependency axios to v0.25.0 [[8b978aa](https://github.com/snaildos/SnailDOS-Desktop/commit/8b978aa266eb22eb58644dbb9578619956bb5d22)]
+-  Update dependency electron-updater to v4.6.5 [[09b9880](https://github.com/snaildos/SnailDOS-Desktop/commit/09b9880faebbcdc41c27e49bf634e1e6ba0dff7d)]
+-  Update dependency electron to v16.0.8 [[e1a694a](https://github.com/snaildos/SnailDOS-Desktop/commit/e1a694a2dcd3489100b1e91322e7ef6fa52ec34e)]
+
+
+<a name="1.1.0"></a>
+## 1.1.0 (2022-02-11)
+
+### Miscellaneous
+
+-  Merge branch &#x27;main&#x27; of https://github.com/snaildos/SnailDOS-Desktop [[adf78bb](https://github.com/snaildos/SnailDOS-Desktop/commit/adf78bb707139ea3c61407b9977509fbb85bb4d8)]
+-  Update CHANGELOG.md [[0404656](https://github.com/snaildos/SnailDOS-Desktop/commit/04046567ccb5886b81f5af241fd7745430b8b1c2)]
+-  Fix broken auto update [[266d794](https://github.com/snaildos/SnailDOS-Desktop/commit/266d7940b51e83cc101705e438a38ccf23653344)]
+
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2022-02-11)
 
