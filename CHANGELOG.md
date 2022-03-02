@@ -1,10 +1,11 @@
 # Changelog
 
-<a name="next"></a>
-## next
+<a name="1.2.0"></a>
+## 1.2.0 (2022-03-02)
 
 ### Miscellaneous
 
+-  Update CHANGELOG.md [[9bfd22b](https://github.com/snaildos/SnailDOS-Desktop/commit/9bfd22bd3f7140a56e01dfb31d2439805930e8ec)]
 -  Remove placeholder for production [[e47476e](https://github.com/snaildos/SnailDOS-Desktop/commit/e47476e56d6128dd823a402654863d2c4896b3b0)]
 -  Increase window size [[835f4d3](https://github.com/snaildos/SnailDOS-Desktop/commit/835f4d32659118d17ddbfcef5b1357086d798067)]
 -  Merge pull request [#119](https://github.com/snaildos/SnailDOS-Desktop/issues/119) from snaildos/dependabot/npm_and_yarn/axios-0.26.0 [[b10f0ce](https://github.com/snaildos/SnailDOS-Desktop/commit/b10f0ceffb14c5c3538123b26fa4f54df3487f02)]
