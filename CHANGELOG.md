@@ -5,9 +5,14 @@
 
 ### Miscellaneous
 
+-  Merge pull request [#124](https://github.com/snaildos/SnailDOS-Desktop/issues/124) from snaildos/renovate/electron-17.x [[547e1e8](https://github.com/snaildos/SnailDOS-Desktop/commit/547e1e80409447e3e58c93db32b41b406b2960ab)]
+-  Merge pull request [#125](https://github.com/snaildos/SnailDOS-Desktop/issues/125) from snaildos/renovate/actions-checkout-3.x [[dda42ec](https://github.com/snaildos/SnailDOS-Desktop/commit/dda42eca271726f2d76173f86bb925fc1394c8ad)]
+-  Bump version and Changelog [[5dce407](https://github.com/snaildos/SnailDOS-Desktop/commit/5dce407cef308f8867eebc62a79e23a151d056fd)]
 -  Update CHANGELOG.md [[9bfd22b](https://github.com/snaildos/SnailDOS-Desktop/commit/9bfd22bd3f7140a56e01dfb31d2439805930e8ec)]
 -  Remove placeholder for production [[e47476e](https://github.com/snaildos/SnailDOS-Desktop/commit/e47476e56d6128dd823a402654863d2c4896b3b0)]
 -  Increase window size [[835f4d3](https://github.com/snaildos/SnailDOS-Desktop/commit/835f4d32659118d17ddbfcef5b1357086d798067)]
+-  Update actions/checkout action to v3 [[925e861](https://github.com/snaildos/SnailDOS-Desktop/commit/925e86179f1e2b152ed4fad66baa24645c4849f5)]
+-  Update dependency electron to v17.1.0 [[63b7ef1](https://github.com/snaildos/SnailDOS-Desktop/commit/63b7ef11466aa2b109adfb6e87d7c771b8789b10)]
 -  Merge pull request [#119](https://github.com/snaildos/SnailDOS-Desktop/issues/119) from snaildos/dependabot/npm_and_yarn/axios-0.26.0 [[b10f0ce](https://github.com/snaildos/SnailDOS-Desktop/commit/b10f0ceffb14c5c3538123b26fa4f54df3487f02)]
 -  Merge pull request [#120](https://github.com/snaildos/SnailDOS-Desktop/issues/120) from snaildos/dependabot/npm_and_yarn/electron-17.0.1 [[6d0ea9a](https://github.com/snaildos/SnailDOS-Desktop/commit/6d0ea9a20e89102adf3382d20cdcac531b973df2)]
 -  Merge pull request [#121](https://github.com/snaildos/SnailDOS-Desktop/issues/121) from snaildos/renovate/electron-17.x [[ce72eca](https://github.com/snaildos/SnailDOS-Desktop/commit/ce72eca06b24a6f8759a156ccc1c74583ebb76cf)]
