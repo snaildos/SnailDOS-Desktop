@@ -321,54 +321,6 @@ hr.roundedd {
     font-size: 18px;
 }
   </style>
-          <script>
-            // login handler
-            window.jQuery = window.$ = require('jquery');
-            const Store = require('electron-store');
-            const store = new Store();
-            token = store.get('token')
-            async function name() {
-          await axios.get('https://api.snaildos.com/users/@me', {
-          headers: {
-          Authorization: token
-          }}
-          )
-          .then(function (response) {
-            // handle success
-            document.getElementById("name").innerHTML = ( response.data.user.name );
-            $(".loginbutton").hide();
-            $(".logoutbutton").show();
-            $(".nav").show()
-          })
-          .catch(function (error) {
-            // handle error
-            alert(error);
-          })
-          .then(function () {
-          });
-          }
-          if (token == undefined) {
-            console.log("Not doing anything since token is undefined.");
-            $(".namerr").hide()
-            $(".logoutbutton").hide()
-            $(".nav").hide()
-            $(".name").hide()
-          } else {
-            if (store.get('logged_in') == true) {
-            name()
-          } else {
-            $(".namerr").hide()
-            $(".nav").hide()
-            $(".logoutbutton").hide()
-            $(".name").hide()
-          }
-          }
-          if ((store.get('logged_in') == false)) {
-            $(".logoutbutton").hide()
-            $(".name").hide()
-          }
-          
-            </script>
   <script>
     // onload hide all pages
     $(document).ready(function(){
@@ -554,5 +506,53 @@ hr.roundedd {
 </h1>
 </div>
 </div>
+<script>
+  // login handler
+  window.jQuery = window.$ = require('jquery');
+  const Store = require('electron-store');
+  const store = new Store();
+  token = store.get('token')
+  async function name() {
+await axios.get('https://api.snaildos.com/users/@me', {
+headers: {
+Authorization: token
+}}
+)
+.then(function (response) {
+  // handle success
+  document.getElementById("name").innerHTML = ( response.data.user.name );
+  $(".loginbutton").hide();
+  $(".logoutbutton").show();
+  $(".nav").show()
+})
+.catch(function (error) {
+  // handle error
+  alert(error);
+})
+.then(function () {
+});
+}
+if (token == undefined) {
+  console.log("Not doing anything since token is undefined.");
+  $(".namerr").hide()
+  $(".logoutbutton").hide()
+  $(".nav").hide()
+  $(".name").hide()
+} else {
+  if (store.get('logged_in') == true) {
+  name()
+} else {
+  $(".namerr").hide()
+  $(".nav").hide()
+  $(".logoutbutton").hide()
+  $(".name").hide()
+}
+}
+if ((store.get('logged_in') == false)) {
+  $(".logoutbutton").hide()
+  $(".name").hide()
+}
+
+  </script>
 </body>
 </html>
