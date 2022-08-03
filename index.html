@@ -85,16 +85,13 @@ z-index: -1;
   max-width: 100%;
   max-height: 100%;
   max-width: 100%;
-  background: linear-gradient(-45deg, #6b6dff, #3c3d8d, #23a6d5, #002b57);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
   box-sizing: border-box;
   margin: 0;
   padding: 20px;
   font-family: sans-serif;
-  background-color: #ffffff;
+  background: transparent;
   text-align: center;
-  opacity: 0.5;
 }
 
 .center { margin: 0 auto; width: 400px; }
@@ -103,32 +100,8 @@ p,h1,h2,h3,h4,h5,h6  {
   color: white;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 p,h1,h2,h3,h4,h5,div {
   font-family: 'Roboto', sans-serif;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
 }
 
 .page {
@@ -320,6 +293,32 @@ hr.roundedd {
 .nav__icon {
     font-size: 18px;
 }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.background {
+  background: linear-gradient(-45deg, #6b6dff, #3c3d8d, #23a6d5, #002b57);
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+}
+
   </style>
   <script>
     // onload hide all pages
@@ -356,6 +355,7 @@ hr.roundedd {
     </div>
   </header>
 <body>
+  <div class="background"></div>
   <div class="content">
     <nav class="nav">
       <a onclick="mainpage()" class="nav__link nav__link">
