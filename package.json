@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "axios": "0.27.2",
-    "bufferutil": "^4.0.6",
+    "bufferutil": "^4.0.7",
     "discord-rpc": "4.0.1",
     "electron-store": "8.1.0",
     "electron-titlebar-respect": "^1.0.0",
